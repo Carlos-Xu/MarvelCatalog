@@ -13,6 +13,7 @@ target 'MarvelCatalog' do
   target 'MarvelCatalogTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxBlocking', '~> 6.2'
   end
 
   target 'MarvelCatalogUITests' do
