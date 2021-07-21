@@ -1,19 +1,18 @@
 //
-//  ViewController.swift
+//  CharacterDetailPageVC.swift
 //  MarvelCatalog
 //
-//  Created by Carlos Xu on 20/7/21.
+//  Created by Carlos Xu on 21/7/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class CharacterDetailPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
+    
 }
-

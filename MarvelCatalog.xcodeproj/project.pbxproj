@@ -25,9 +25,13 @@
 		62343ED826A81FCD0068FDE1 /* SeriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343ED726A81FCD0068FDE1 /* SeriesList.swift */; };
 		62343EDA26A81FDF0068FDE1 /* SeriesSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343ED926A81FDF0068FDE1 /* SeriesSummary.swift */; };
 		62343EDC26A82A740068FDE1 /* DecodingConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EDB26A82A740068FDE1 /* DecodingConfigs.swift */; };
+		62343EE126A837920068FDE1 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE026A837920068FDE1 /* CommonRouter.swift */; };
+		62343EE426A8380F0068FDE1 /* CharacterDetailPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE326A8380F0068FDE1 /* CharacterDetailPageVC.swift */; };
+		62343EE626A838E50068FDE1 /* CharactersListPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */; };
+		62343EE826A8392E0068FDE1 /* CharacterDetailPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE726A8392E0068FDE1 /* CharacterDetailPageRouter.swift */; };
 		62472F6726A6E93000C9441E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6626A6E93000C9441E /* AppDelegate.swift */; };
 		62472F6926A6E93000C9441E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6826A6E93000C9441E /* SceneDelegate.swift */; };
-		62472F6B26A6E93000C9441E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6A26A6E93000C9441E /* ViewController.swift */; };
+		62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */; };
 		62472F6E26A6E93000C9441E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62472F6C26A6E93000C9441E /* Main.storyboard */; };
 		62472F7126A6E93000C9441E /* MarvelCatalog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6F26A6E93000C9441E /* MarvelCatalog.xcdatamodeld */; };
 		62472F7326A6E93300C9441E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62472F7226A6E93300C9441E /* Assets.xcassets */; };
@@ -83,10 +87,14 @@
 		62343ED726A81FCD0068FDE1 /* SeriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesList.swift; sourceTree = "<group>"; };
 		62343ED926A81FDF0068FDE1 /* SeriesSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesSummary.swift; sourceTree = "<group>"; };
 		62343EDB26A82A740068FDE1 /* DecodingConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingConfigs.swift; sourceTree = "<group>"; };
+		62343EE026A837920068FDE1 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
+		62343EE326A8380F0068FDE1 /* CharacterDetailPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPageVC.swift; sourceTree = "<group>"; };
+		62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageRouter.swift; sourceTree = "<group>"; };
+		62343EE726A8392E0068FDE1 /* CharacterDetailPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPageRouter.swift; sourceTree = "<group>"; };
 		62472F6326A6E93000C9441E /* MarvelCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62472F6626A6E93000C9441E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62472F6826A6E93000C9441E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		62472F6A26A6E93000C9441E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageVC.swift; sourceTree = "<group>"; };
 		62472F6D26A6E93000C9441E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62472F7026A6E93000C9441E /* MarvelCatalog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelCatalog.xcdatamodel; sourceTree = "<group>"; };
 		62472F7226A6E93300C9441E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,6 +193,42 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		62343EDD26A836830068FDE1 /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				62343EDF26A8377C0068FDE1 /* common */,
+				62343EDE26A837610068FDE1 /* characters_list */,
+				62343EE226A837F20068FDE1 /* character_detail */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		62343EDE26A837610068FDE1 /* characters_list */ = {
+			isa = PBXGroup;
+			children = (
+				62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */,
+				62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */,
+			);
+			path = characters_list;
+			sourceTree = "<group>";
+		};
+		62343EDF26A8377C0068FDE1 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				62343EE026A837920068FDE1 /* CommonRouter.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		62343EE226A837F20068FDE1 /* character_detail */ = {
+			isa = PBXGroup;
+			children = (
+				62343EE326A8380F0068FDE1 /* CharacterDetailPageVC.swift */,
+				62343EE726A8392E0068FDE1 /* CharacterDetailPageRouter.swift */,
+			);
+			path = character_detail;
+			sourceTree = "<group>";
+		};
 		62472F5A26A6E93000C9441E = {
 			isa = PBXGroup;
 			children = (
@@ -212,9 +256,9 @@
 			children = (
 				62472FAE26A6FB8B00C9441E /* tools */,
 				62472FAB26A6F80F00C9441E /* repo */,
+				62343EDD26A836830068FDE1 /* pages */,
 				62472F6626A6E93000C9441E /* AppDelegate.swift */,
 				62472F6826A6E93000C9441E /* SceneDelegate.swift */,
-				62472F6A26A6E93000C9441E /* ViewController.swift */,
 				62472F6C26A6E93000C9441E /* Main.storyboard */,
 				62472F7226A6E93300C9441E /* Assets.xcassets */,
 				62472F7426A6E93300C9441E /* LaunchScreen.storyboard */,
@@ -544,8 +588,9 @@
 				62472FB026A6FB9300C9441E /* hashing.swift in Sources */,
 				62343ECC26A81F570068FDE1 /* ComicList.swift in Sources */,
 				62343ED426A81FA70068FDE1 /* EventList.swift in Sources */,
+				62343EE126A837920068FDE1 /* CommonRouter.swift in Sources */,
 				62472F7126A6E93000C9441E /* MarvelCatalog.xcdatamodeld in Sources */,
-				62472F6B26A6E93000C9441E /* ViewController.swift in Sources */,
+				62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */,
 				62343ED226A81F940068FDE1 /* StorySummary.swift in Sources */,
 				62343EC226A81A580068FDE1 /* CharacterDataWrapper.swift in Sources */,
 				62343ECE26A81F690068FDE1 /* ComicSummary.swift in Sources */,
@@ -555,6 +600,8 @@
 				62472FA826A6F1A600C9441E /* Config.swift in Sources */,
 				62343EC826A81F300068FDE1 /* Url.swift in Sources */,
 				62343EDA26A81FDF0068FDE1 /* SeriesSummary.swift in Sources */,
+				62343EE626A838E50068FDE1 /* CharactersListPageRouter.swift in Sources */,
+				62343EE826A8392E0068FDE1 /* CharacterDetailPageRouter.swift in Sources */,
 				62343EBA26A80B6B0068FDE1 /* Alamofire+Rx.swift in Sources */,
 				62472FB226A703DD00C9441E /* UniqueStrings.swift in Sources */,
 				62343EBE26A815230068FDE1 /* SimpleError.swift in Sources */,
@@ -564,6 +611,7 @@
 				62343EC426A81ADC0068FDE1 /* CharacterDataContainer.swift in Sources */,
 				62343EC626A81ECA0068FDE1 /* Character.swift in Sources */,
 				62472F6926A6E93000C9441E /* SceneDelegate.swift in Sources */,
+				62343EE426A8380F0068FDE1 /* CharacterDetailPageVC.swift in Sources */,
 				62472FB426A70AE300C9441E /* Integers.swift in Sources */,
 				62343EDC26A82A740068FDE1 /* DecodingConfigs.swift in Sources */,
 				62343ED026A81F7B0068FDE1 /* StoryList.swift in Sources */,
