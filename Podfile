@@ -9,6 +9,7 @@ target 'MarvelCatalog' do
   pod 'Alamofire', '~> 5.4'
   pod 'Kingfisher', '~> 6.0'
   pod 'RxSwift', '6.2.0'
+  pod 'Swinject', '~> 2.7'
 
   target 'MarvelCatalogTests' do
     inherit! :search_paths
