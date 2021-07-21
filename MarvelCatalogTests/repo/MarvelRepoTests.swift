@@ -22,8 +22,20 @@ class MarvelRepoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        let call = repo.listCharacters2().toBlocking()
+    func testGetCharacters() throws {
+        let call = repo.listCharacters().toBlocking()
+        
+        do {
+            let response = try call.toArray()
+            XCTAssertEqual(response.count, 1)
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
+    func testGetCharacter() throws {
+        let characterId = 1011334 // 3-D Man
+        let call = repo.getCharacter(characterId).toBlocking()
         
         do {
             let response = try call.toArray()

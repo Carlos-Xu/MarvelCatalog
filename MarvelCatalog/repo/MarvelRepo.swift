@@ -34,6 +34,18 @@ class MarvelRepo {
         }
     }
     
+    func getCharacter(_ characterId: Int) -> Single<CharacterDataWrapper> {
+        let url = "\(baseUrl)/characters/\(characterId)"
+        
+        return rxPerformRequestDecodable(of: CharacterDataWrapper.self, decoder: getDecoder()) { [weak self] in
+            guard let selfRef = self else {
+                throw SimpleError()
+            }
+            let parameters: Parameters = selfRef.generateAuthParameters()
+            return AF.request(url, method: .get, parameters: parameters)
+        }
+    }
+    
     // MARK: - Helpers
     
     private func generateAuthParameters() -> Parameters {
