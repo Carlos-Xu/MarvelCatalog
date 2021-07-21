@@ -265,7 +265,6 @@
 				62472F7726A6E93300C9441E /* Info.plist */,
 				62472F6F26A6E93000C9441E /* MarvelCatalog.xcdatamodeld */,
 				62472FA026A6EEFC00C9441E /* MarvelKeys.xcconfig */,
-				62472FA726A6F1A600C9441E /* Config.swift */,
 			);
 			path = MarvelCatalog;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 				62472FAF26A6FB9300C9441E /* hashing.swift */,
 				62472FB126A703DD00C9441E /* UniqueStrings.swift */,
 				62472FB326A70AE300C9441E /* Integers.swift */,
+				62472FA726A6F1A600C9441E /* Config.swift */,
 			);
 			path = tools;
 			sourceTree = "<group>";
