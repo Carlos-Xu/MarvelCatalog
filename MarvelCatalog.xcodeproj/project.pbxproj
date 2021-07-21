@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0BEABDCF7AA98D7D90B3D5B8 /* Pods_MarvelCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7454744887B4335EF46A8B /* Pods_MarvelCatalog.framework */; };
+		62343EBA26A80B6B0068FDE1 /* Alamofire+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EB926A80B6B0068FDE1 /* Alamofire+Rx.swift */; };
+		62343EBC26A80C770068FDE1 /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EBB26A80C770068FDE1 /* RepositoryError.swift */; };
+		62343EBE26A815230068FDE1 /* SimpleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EBD26A815230068FDE1 /* SimpleError.swift */; };
 		62472F6726A6E93000C9441E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6626A6E93000C9441E /* AppDelegate.swift */; };
 		62472F6926A6E93000C9441E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6826A6E93000C9441E /* SceneDelegate.swift */; };
 		62472F6B26A6E93000C9441E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6A26A6E93000C9441E /* ViewController.swift */; };
@@ -19,6 +22,11 @@
 		62472F8C26A6E93300C9441E /* MarvelCatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F8B26A6E93300C9441E /* MarvelCatalogUITests.swift */; };
 		62472FA826A6F1A600C9441E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FA726A6F1A600C9441E /* Config.swift */; };
 		62472FAA26A6F2CB00C9441E /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FA926A6F2CB00C9441E /* ConfigTests.swift */; };
+		62472FAD26A6F81D00C9441E /* MarvelRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FAC26A6F81D00C9441E /* MarvelRepo.swift */; };
+		62472FB026A6FB9300C9441E /* hashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FAF26A6FB9300C9441E /* hashing.swift */; };
+		62472FB226A703DD00C9441E /* UniqueStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FB126A703DD00C9441E /* UniqueStrings.swift */; };
+		62472FB426A70AE300C9441E /* Integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FB326A70AE300C9441E /* Integers.swift */; };
+		62472FB726A7132C00C9441E /* MarvelRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FB626A7132C00C9441E /* MarvelRepoTests.swift */; };
 		976CFEA89C69E62814154C4E /* Pods_MarvelCatalog_MarvelCatalogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C048FF7599061FCE9CB5D15 /* Pods_MarvelCatalog_MarvelCatalogUITests.framework */; };
 		C1203A0972FBB18F6F692988 /* Pods_MarvelCatalogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8341F86D3E1543CABFF025CB /* Pods_MarvelCatalogTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +52,9 @@
 		034A77D6DBAFB714193E7CA5 /* Pods-MarvelCatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalogTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelCatalogTests/Pods-MarvelCatalogTests.release.xcconfig"; sourceTree = "<group>"; };
 		1C048FF7599061FCE9CB5D15 /* Pods_MarvelCatalog_MarvelCatalogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCatalog_MarvelCatalogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B8FB957483BF1710B7D5D6 /* Pods-MarvelCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalog.release.xcconfig"; path = "Target Support Files/Pods-MarvelCatalog/Pods-MarvelCatalog.release.xcconfig"; sourceTree = "<group>"; };
+		62343EB926A80B6B0068FDE1 /* Alamofire+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+Rx.swift"; sourceTree = "<group>"; };
+		62343EBB26A80C770068FDE1 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
+		62343EBD26A815230068FDE1 /* SimpleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleError.swift; sourceTree = "<group>"; };
 		62472F6326A6E93000C9441E /* MarvelCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62472F6626A6E93000C9441E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62472F6826A6E93000C9441E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +73,11 @@
 		62472FA026A6EEFC00C9441E /* MarvelKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MarvelKeys.xcconfig; sourceTree = "<group>"; };
 		62472FA726A6F1A600C9441E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		62472FA926A6F2CB00C9441E /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		62472FAC26A6F81D00C9441E /* MarvelRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepo.swift; sourceTree = "<group>"; };
+		62472FAF26A6FB9300C9441E /* hashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hashing.swift; sourceTree = "<group>"; };
+		62472FB126A703DD00C9441E /* UniqueStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueStrings.swift; sourceTree = "<group>"; };
+		62472FB326A70AE300C9441E /* Integers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integers.swift; sourceTree = "<group>"; };
+		62472FB626A7132C00C9441E /* MarvelRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepoTests.swift; sourceTree = "<group>"; };
 		6F2FC00342146E37E108D121 /* Pods-MarvelCatalog-MarvelCatalogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalog-MarvelCatalogUITests.release.xcconfig"; path = "Target Support Files/Pods-MarvelCatalog-MarvelCatalogUITests/Pods-MarvelCatalog-MarvelCatalogUITests.release.xcconfig"; sourceTree = "<group>"; };
 		788DBD75E8841B3A3CF1F97F /* Pods-MarvelCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalog.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCatalog/Pods-MarvelCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		8341F86D3E1543CABFF025CB /* Pods_MarvelCatalogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCatalogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +127,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		62343EBF26A817890068FDE1 /* alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				62343EB926A80B6B0068FDE1 /* Alamofire+Rx.swift */,
+				62343EBB26A80C770068FDE1 /* RepositoryError.swift */,
+			);
+			path = alamofire;
+			sourceTree = "<group>";
+		};
 		62472F5A26A6E93000C9441E = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +161,8 @@
 		62472F6526A6E93000C9441E /* MarvelCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				62472FAE26A6FB8B00C9441E /* tools */,
+				62472FAB26A6F80F00C9441E /* repo */,
 				62472F6626A6E93000C9441E /* AppDelegate.swift */,
 				62472F6826A6E93000C9441E /* SceneDelegate.swift */,
 				62472F6A26A6E93000C9441E /* ViewController.swift */,
@@ -153,6 +180,7 @@
 		62472F7F26A6E93300C9441E /* MarvelCatalogTests */ = {
 			isa = PBXGroup;
 			children = (
+				62472FB526A7131C00C9441E /* repo */,
 				62472F8026A6E93300C9441E /* MarvelCatalogTests.swift */,
 				62472FA926A6F2CB00C9441E /* ConfigTests.swift */,
 				62472F8226A6E93300C9441E /* Info.plist */,
@@ -167,6 +195,34 @@
 				62472F8D26A6E93300C9441E /* Info.plist */,
 			);
 			path = MarvelCatalogUITests;
+			sourceTree = "<group>";
+		};
+		62472FAB26A6F80F00C9441E /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				62472FAC26A6F81D00C9441E /* MarvelRepo.swift */,
+			);
+			path = repo;
+			sourceTree = "<group>";
+		};
+		62472FAE26A6FB8B00C9441E /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				62343EBF26A817890068FDE1 /* alamofire */,
+				62343EBD26A815230068FDE1 /* SimpleError.swift */,
+				62472FAF26A6FB9300C9441E /* hashing.swift */,
+				62472FB126A703DD00C9441E /* UniqueStrings.swift */,
+				62472FB326A70AE300C9441E /* Integers.swift */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		62472FB526A7131C00C9441E /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				62472FB626A7132C00C9441E /* MarvelRepoTests.swift */,
+			);
+			path = repo;
 			sourceTree = "<group>";
 		};
 		84A1904F133EDA9A955E7A3C /* Frameworks */ = {
@@ -209,6 +265,7 @@
 				62472F7826A6E93300C9441E /* Sources */,
 				62472F7926A6E93300C9441E /* Frameworks */,
 				62472F7A26A6E93300C9441E /* Resources */,
+				E835BEE2CB231B5DF746E5CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,6 +467,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E835BEE2CB231B5DF746E5CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelCatalogTests/Pods-MarvelCatalogTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvelCatalogTests/Pods-MarvelCatalogTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarvelCatalogTests/Pods-MarvelCatalogTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -417,11 +491,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62472FB026A6FB9300C9441E /* hashing.swift in Sources */,
 				62472F7126A6E93000C9441E /* MarvelCatalog.xcdatamodeld in Sources */,
 				62472F6B26A6E93000C9441E /* ViewController.swift in Sources */,
+				62472FAD26A6F81D00C9441E /* MarvelRepo.swift in Sources */,
+				62343EBC26A80C770068FDE1 /* RepositoryError.swift in Sources */,
 				62472FA826A6F1A600C9441E /* Config.swift in Sources */,
+				62343EBA26A80B6B0068FDE1 /* Alamofire+Rx.swift in Sources */,
+				62472FB226A703DD00C9441E /* UniqueStrings.swift in Sources */,
+				62343EBE26A815230068FDE1 /* SimpleError.swift in Sources */,
 				62472F6726A6E93000C9441E /* AppDelegate.swift in Sources */,
 				62472F6926A6E93000C9441E /* SceneDelegate.swift in Sources */,
+				62472FB426A70AE300C9441E /* Integers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +512,7 @@
 			files = (
 				62472F8126A6E93300C9441E /* MarvelCatalogTests.swift in Sources */,
 				62472FAA26A6F2CB00C9441E /* ConfigTests.swift in Sources */,
+				62472FB726A7132C00C9441E /* MarvelRepoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

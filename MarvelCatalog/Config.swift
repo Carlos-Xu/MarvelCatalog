@@ -16,6 +16,7 @@ enum Config {
     enum Key: String {
         case marvelPrivateApiKey = "MARVEL_PRIVATE_API_KEY"
         case marvelPublicApiKey = "MARVEL_PUBLIC_API_KEY"
+        case marvelApiBaseUrl = "MARVEL_API_BASE_URL"
     }
     
     

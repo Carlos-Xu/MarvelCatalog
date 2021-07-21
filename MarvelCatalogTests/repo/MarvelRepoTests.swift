@@ -1,34 +1,28 @@
 //
-//  ConfigTests.swift
-//  ConfigTests
+//  MarvelRepoTests.swift
+//  MarvelRepoTests
 //
 //  Created by Carlos Xu on 20/7/21.
 //
 
 import XCTest
+import RxBlocking
+
 @testable import MarvelCatalog
 
-class ConfigTests: XCTestCase {
+class MarvelRepoTests: XCTestCase {
 
-    let keys: [Config.Key] = [
-        .marvelPrivateApiKey,
-        .marvelPublicApiKey,
-        .marvelApiBaseUrl
-    ]
+    var repo: MarvelRepo!
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        repo = MarvelRepo()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testReadValues() throws {
-        for key in keys {
-            let value: String? = try? Config.value(for: key)
-            XCTAssertNotNil(value)
-        }
+    func testExample() throws {
     }
 
     func testPerformanceExample() throws {
