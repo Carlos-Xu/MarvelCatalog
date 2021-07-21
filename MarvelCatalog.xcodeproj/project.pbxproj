@@ -29,6 +29,8 @@
 		62343EE426A8380F0068FDE1 /* CharacterDetailPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE326A8380F0068FDE1 /* CharacterDetailPageVC.swift */; };
 		62343EE626A838E50068FDE1 /* CharactersListPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */; };
 		62343EE826A8392E0068FDE1 /* CharacterDetailPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE726A8392E0068FDE1 /* CharacterDetailPageRouter.swift */; };
+		62343EEA26A83C060068FDE1 /* CharactersListPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EE926A83C060068FDE1 /* CharactersListPageVM.swift */; };
+		62343EEC26A83D220068FDE1 /* CharactersListPageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EEB26A83D220068FDE1 /* CharactersListPageUI.swift */; };
 		62472F6726A6E93000C9441E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6626A6E93000C9441E /* AppDelegate.swift */; };
 		62472F6926A6E93000C9441E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6826A6E93000C9441E /* SceneDelegate.swift */; };
 		62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */; };
@@ -91,6 +93,8 @@
 		62343EE326A8380F0068FDE1 /* CharacterDetailPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPageVC.swift; sourceTree = "<group>"; };
 		62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageRouter.swift; sourceTree = "<group>"; };
 		62343EE726A8392E0068FDE1 /* CharacterDetailPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPageRouter.swift; sourceTree = "<group>"; };
+		62343EE926A83C060068FDE1 /* CharactersListPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageVM.swift; sourceTree = "<group>"; };
+		62343EEB26A83D220068FDE1 /* CharactersListPageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageUI.swift; sourceTree = "<group>"; };
 		62472F6326A6E93000C9441E /* MarvelCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62472F6626A6E93000C9441E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62472F6826A6E93000C9441E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 			children = (
 				62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */,
 				62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */,
+				62343EE926A83C060068FDE1 /* CharactersListPageVM.swift */,
+				62343EEB26A83D220068FDE1 /* CharactersListPageUI.swift */,
 			);
 			path = characters_list;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				62472FB026A6FB9300C9441E /* hashing.swift in Sources */,
 				62343ECC26A81F570068FDE1 /* ComicList.swift in Sources */,
 				62343ED426A81FA70068FDE1 /* EventList.swift in Sources */,
+				62343EEA26A83C060068FDE1 /* CharactersListPageVM.swift in Sources */,
 				62343EE126A837920068FDE1 /* CommonRouter.swift in Sources */,
 				62472F7126A6E93000C9441E /* MarvelCatalog.xcdatamodeld in Sources */,
 				62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */,
@@ -596,6 +603,7 @@
 				62343ECE26A81F690068FDE1 /* ComicSummary.swift in Sources */,
 				62472FAD26A6F81D00C9441E /* MarvelRepo.swift in Sources */,
 				62343EBC26A80C770068FDE1 /* RepositoryError.swift in Sources */,
+				62343EEC26A83D220068FDE1 /* CharactersListPageUI.swift in Sources */,
 				62343ED626A81FB90068FDE1 /* EventSummary.swift in Sources */,
 				62472FA826A6F1A600C9441E /* Config.swift in Sources */,
 				62343EC826A81F300068FDE1 /* Url.swift in Sources */,

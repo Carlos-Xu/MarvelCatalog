@@ -12,7 +12,6 @@ class CharactersListPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
 
 
