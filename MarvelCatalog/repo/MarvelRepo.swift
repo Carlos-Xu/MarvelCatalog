@@ -21,37 +21,11 @@ class MarvelRepo {
         privateKey = try! Config.value(for: .marvelPrivateApiKey)
         publicKey = try! Config.value(for: .marvelPublicApiKey)
     }
-        
-    func listCharacters() -> Single<String> {
-        let url = "\(baseUrl)/characters"
-        
-        return Single<String>.create { [weak self] observer in
-            guard let selfRef = self else {
-                return Disposables.create()
-            }
-            
-            let parameters: Parameters = selfRef.generateAuthParameters()
-            
-            let request = AF.request(url, method: .get, parameters: parameters)
-            
-            request.responseString { response in
-                guard let responseString = response.value else {
-                    observer(.failure(SimpleError()))
-                    return
-                }
-                observer(.success(responseString))
-            }
-            
-            return Disposables.create{
-                request.cancel()
-            }
-        }
-    }
     
-    func listCharacters2() -> Single<String> {
+    func listCharacters() -> Single<CharacterDataWrapper> {
         let url = "\(baseUrl)/characters"
         
-        return rxPerformRequest { [weak self] in
+        return rxPerformRequestDecodable(of: CharacterDataWrapper.self, decoder: getDecoder()) { [weak self] in
             guard let selfRef = self else {
                 throw SimpleError()
             }
@@ -74,6 +48,14 @@ class MarvelRepo {
             "hash": hash
         ]
     }
-
+    
+    func getDecoder() -> Alamofire.DataDecoder {
+        let decoder = JSONDecoder()
+        
+        decoder.dateDecodingStrategy = .iso8601 // Marvel doesn't state the time format. But It looks like iso8601.
+        
+        return decoder
+    }
+    
     
 }

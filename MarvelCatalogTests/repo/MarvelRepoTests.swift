@@ -23,6 +23,14 @@ class MarvelRepoTests: XCTestCase {
     }
 
     func testExample() throws {
+        let call = repo.listCharacters2().toBlocking()
+        
+        do {
+            let response = try call.toArray()
+            XCTAssertEqual(response.count, 1)
+        } catch {
+            XCTFail(String(describing: error))
+        }
     }
 
     func testPerformanceExample() throws {
