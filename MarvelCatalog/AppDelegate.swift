@@ -7,10 +7,15 @@
 
 import UIKit
 import CoreData
+import Swinject
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let di: Container = {
+        let newContainer = initializeDIContainer()
+        return newContainer
+    }()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -75,6 +80,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    // MARK: - Convenience
+    
+    static func getSharedInstance() -> AppDelegate {
+        UIApplication.shared.delegate! as! AppDelegate
     }
 
 }

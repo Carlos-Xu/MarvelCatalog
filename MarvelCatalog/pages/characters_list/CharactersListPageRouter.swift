@@ -11,7 +11,13 @@ import Foundation
 class CharactersListPageRouter {
     
     static func makeVC() -> CharactersListPageVC {
-        CommonRouter.makeVC()
+        let di = AppDelegate.getSharedInstance().di
+        let vc: CharactersListPageVC = CommonRouter.makeVC()
+        
+        vc.schedulers = di.resolve(MySchedulers.self)!
+        vc.vm = di.resolve(CharactersListPageVM.self)!
+        
+        return vc
     }
     
 }
