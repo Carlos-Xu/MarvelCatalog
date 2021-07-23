@@ -22,14 +22,16 @@ class MarvelRepo {
         publicKey = try! Config.value(for: .marvelPublicApiKey)
     }
     
-    func listCharacters() -> Single<CharacterDataWrapper> {
+    func listCharacters(offset: Int, limit: Int) -> Single<CharacterDataWrapper> {
         let url = "\(baseUrl)/characters"
         
         return rxPerformRequestDecodable(of: CharacterDataWrapper.self, decoder: getDecoder()) { [weak self] in
             guard let selfRef = self else {
                 throw SimpleError()
             }
-            let parameters: Parameters = selfRef.generateAuthParameters()
+            var parameters: Parameters = selfRef.generateAuthParameters()
+            parameters["offset"] = offset
+            parameters["limit"] = limit
             return AF.request(url, method: .get, parameters: parameters)
         }
     }

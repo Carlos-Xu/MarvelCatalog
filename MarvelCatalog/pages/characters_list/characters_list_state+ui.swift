@@ -7,11 +7,25 @@
 
 import Foundation
 
+struct CharactersListPageState: Equatable {
+    var characterPages: [Int: [CharactersListPageUI.CharacterItem]] = [:]
+    var ongoingListLoadingTasks: Int = 0
+}
+
 
 struct CharactersListPageUI {
     
-    var characters: [CharacterItem] = []
-    var listIsLoading: Bool = false
+    var characters: [CharacterItem]
+    var listIsLoading: Bool
+    
+    init(from state: CharactersListPageState) {
+        let entries = state.characterPages.map{ $0 }
+        self.characters = entries
+            .sorted { $0.key < $1.key }
+            .flatMap { $1 }
+        
+        self.listIsLoading = state.ongoingListLoadingTasks > 0
+    }
     
     struct CharacterItem: Equatable {
         var id: Int

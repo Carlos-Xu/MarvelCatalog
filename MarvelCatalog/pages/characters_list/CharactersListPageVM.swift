@@ -8,79 +8,108 @@
 import Foundation
 import RxSwift
 
+// config
+private let listPageSize = 20
+
 class CharactersListPageVM {
     
     // MARK: - Properties
     
     private let disposeBag = DisposeBag()
     
-    private let _ui = BehaviorSubject<CharactersListPageUI>(value: CharactersListPageUI())
-    var ui: Observable<CharactersListPageUI> { _ui }
+    private let stateSemaphore = DispatchSemaphore(value: 1)
+    private var state = CharactersListPageState()
+    
+    private let _stateReceiver = BehaviorSubject<CharactersListPageState>(value: CharactersListPageState())
+    var ui: Observable<CharactersListPageUI>
     
     private let _messages = PublishSubject<String>()
     var messages: Observable<String> { _messages }
     
-    private let _listLoadRequests = BehaviorSubject<Bool>(value: false) // load on true events
+    private let _listPageLoadRequests = PublishSubject<Int>() // load requested page. First page is page 0
     
     // MARK: - Lifecycle
     
     init(repo: MarvelRepo, schedulers: MySchedulers) {
         // set up
-        _listLoadRequests.flatMapLatest { shouldLoad -> Infallible<CharacterDataWrapper?> in
-            if shouldLoad {
-                return repo.listCharacters()
-                    .map({ $0 as CharacterDataWrapper? })
+        ui = _stateReceiver
+            .map { CharactersListPageUI(from: $0) }
+        
+        _listPageLoadRequests
+            .distinctUntilChanged() // prevent loading same page twice
+            .flatMap { pageToLoad -> Observable<(page: Int, response: CharacterDataWrapper)> in
+                let offset = pageToLoad * listPageSize
+                
+                return repo.listCharacters(offset: offset, limit: listPageSize)
                     .asObservable()
                     .do(onSubscribe: { [weak self] in
-                        guard var ui = try? self?._ui.value() else {
-                            return
+                        self?.updateState { old in
+                            var old = old
+                            old.ongoingListLoadingTasks += 1
+                            return old
                         }
-                        ui.listIsLoading = true
-                        self?._ui.onNext(ui)
                     })
-                    .retry(3)
-                    .asInfallible(onErrorJustReturn: nil)
-            } else {
-                return Infallible.empty()
+                    .map { (page: pageToLoad, response: $0) }
+                    .retry(when: { errors in
+                        errors.delay(.seconds(1), scheduler: schedulers.concurrent(qos: .userInitiated))
+                    })
             }
-        }
-        .subscribe(on: schedulers.serial(qos: .userInitiated))
-        .subscribe { [weak self] event in
-            guard let temp = event.element, let dataWrapper = temp else {
-                // request failed
-                self?.updateUI { $0.listIsLoading = false }
-                self?._messages.onNext("Failed to load characters list")
-                return
+            .subscribe(on: schedulers.serial(qos: .userInitiated))
+            .subscribe { [weak self] event in
+                guard let loadingPage = event.element?.page, let response = event.element?.response else {
+                    // request failed
+                    self?.updateState { old in
+                        var old = old
+                        old.ongoingListLoadingTasks -= 1
+                        return old
+                    }
+                    self?._messages.onNext("Failed to load characters list")
+                    return
+                }
+                
+                let characters: [Character] = response.data?.results ?? []
+                let uiCharacters = characters.compactMap{ CharactersListPageUI.CharacterItem(from: $0, thumbnailType: .square_medium) }
+                
+                self?.updateState {
+                    var old = $0
+                    old.ongoingListLoadingTasks -= 1
+                    old.characterPages[loadingPage] = uiCharacters
+                    return old
+                }
             }
-            
-            let characters: [Character] = dataWrapper.data?.results ?? []
-            let uiCharacters = characters.compactMap{ CharactersListPageUI.CharacterItem(from: $0, thumbnailType: .square_medium) }
-            
-            self?.updateUI { ui in
-                ui.listIsLoading = false
-                ui.characters = uiCharacters
-            }
-        }
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         // first loads
-        _listLoadRequests.onNext(true)
+        _listPageLoadRequests.onNext(0)
     }
     
     // MARK: - Events
     
     func requestListReload() {
-        _listLoadRequests.onNext(true)
+        //        _listPageLoadRequests.onNext(true)
+    }
+    
+    func requestTryLoadingListsNextPage() {
+        
     }
     
     // MARK: - Helpers
     
-    func updateUI(_ updateFunc: (inout CharactersListPageUI) -> Void) {
-        guard var ui = try? _ui.value() else {
-            return
+    func updateState(_ updateFunc: (CharactersListPageState) -> CharactersListPageState) {
+        stateSemaphore.wait()
+        let oldState = self.state
+        let newState = updateFunc(oldState)
+        self.state = newState
+        stateSemaphore.signal()
+        
+        if oldState != newState {
+            _stateReceiver.onNext(newState)
         }
-        updateFunc(&ui)
-        _ui.onNext(ui)
     }
     
+}
+
+
+private enum ListLoadEvent {
+    case loadPage(page: Int)
 }
