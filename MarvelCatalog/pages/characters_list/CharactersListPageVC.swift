@@ -32,6 +32,9 @@ class CharactersListPageVC: SuperViewController {
         // set up table adapter
         charactersTableAdapter = CharactersTableAdapter(onListEndIsNear: { [weak self] reachedRow in
             self?.vm.onCharactersListEndNearlyReached(reachedRow: reachedRow)
+        }, onItemSelected: { [weak self] itemId in
+            let vc = CharacterDetailPageRouter.makeVC(characterId: itemId)
+            self?.navigationController?.pushViewController(vc, animated: true)
         })
         
         // set up Views

@@ -30,6 +30,11 @@ func initializeDIContainer() -> Container {
         CharactersListPageVM(repo: r.resolve(MarvelRepo.self)!, schedulers: r.resolve(MySchedulers.self)!)
     }
     .inObjectScope(.transient)
+    
+    container.register(CharacterDetailPageVM.self) { r in
+        CharacterDetailPageVM(repo: r.resolve(MarvelRepo.self)!, schedulers: r.resolve(MySchedulers.self)!)
+    }
+    .inObjectScope(.transient)
 
     
     return container

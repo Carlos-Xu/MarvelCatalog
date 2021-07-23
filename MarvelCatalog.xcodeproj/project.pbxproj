@@ -53,6 +53,8 @@
 		6298C1C826A953710015F8F9 /* CharactersTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */; };
 		6298C1CA26A957090015F8F9 /* CharacterListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */; };
 		6298C1CC26A9631B0015F8F9 /* MarvelImageVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298C1CB26A9631B0015F8F9 /* MarvelImageVariant.swift */; };
+		62D8178D26AAE5E700AD89D7 /* CharacterDetailPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8178C26AAE5E700AD89D7 /* CharacterDetailPageVM.swift */; };
+		62D8178F26AAE8DD00AD89D7 /* character_details_state+ui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8178E26AAE8DD00AD89D7 /* character_details_state+ui.swift */; };
 		976CFEA89C69E62814154C4E /* Pods_MarvelCatalog_MarvelCatalogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C048FF7599061FCE9CB5D15 /* Pods_MarvelCatalog_MarvelCatalogUITests.framework */; };
 		C1203A0972FBB18F6F692988 /* Pods_MarvelCatalogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8341F86D3E1543CABFF025CB /* Pods_MarvelCatalogTests.framework */; };
 /* End PBXBuildFile section */
@@ -130,6 +132,8 @@
 		6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableAdapter.swift; sourceTree = "<group>"; };
 		6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListItemCell.swift; sourceTree = "<group>"; };
 		6298C1CB26A9631B0015F8F9 /* MarvelImageVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelImageVariant.swift; sourceTree = "<group>"; };
+		62D8178C26AAE5E700AD89D7 /* CharacterDetailPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPageVM.swift; sourceTree = "<group>"; };
+		62D8178E26AAE8DD00AD89D7 /* character_details_state+ui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "character_details_state+ui.swift"; sourceTree = "<group>"; };
 		6F2FC00342146E37E108D121 /* Pods-MarvelCatalog-MarvelCatalogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalog-MarvelCatalogUITests.release.xcconfig"; path = "Target Support Files/Pods-MarvelCatalog-MarvelCatalogUITests/Pods-MarvelCatalog-MarvelCatalogUITests.release.xcconfig"; sourceTree = "<group>"; };
 		788DBD75E8841B3A3CF1F97F /* Pods-MarvelCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalog.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCatalog/Pods-MarvelCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		8341F86D3E1543CABFF025CB /* Pods_MarvelCatalogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCatalogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +251,8 @@
 			children = (
 				62343EE326A8380F0068FDE1 /* CharacterDetailPageVC.swift */,
 				62343EE726A8392E0068FDE1 /* CharacterDetailPageRouter.swift */,
+				62D8178C26AAE5E700AD89D7 /* CharacterDetailPageVM.swift */,
+				62D8178E26AAE8DD00AD89D7 /* character_details_state+ui.swift */,
 			);
 			path = character_detail;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				627CA9FD26A899C20030C1C3 /* SuperViewController.swift in Sources */,
 				62343EEF26A84BF10068FDE1 /* di_setup.swift in Sources */,
 				62343EEC26A83D220068FDE1 /* characters_list_state+ui.swift in Sources */,
+				62D8178D26AAE5E700AD89D7 /* CharacterDetailPageVM.swift in Sources */,
 				62343ED626A81FB90068FDE1 /* EventSummary.swift in Sources */,
 				62343EF126A84C4E0068FDE1 /* MySchedulers.swift in Sources */,
 				62472FA826A6F1A600C9441E /* Config.swift in Sources */,
@@ -663,6 +670,7 @@
 				62472FB426A70AE300C9441E /* Integers.swift in Sources */,
 				62343EDC26A82A740068FDE1 /* DecodingConfigs.swift in Sources */,
 				62343ED026A81F7B0068FDE1 /* StoryList.swift in Sources */,
+				62D8178F26AAE8DD00AD89D7 /* character_details_state+ui.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

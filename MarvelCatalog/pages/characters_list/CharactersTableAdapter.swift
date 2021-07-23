@@ -14,12 +14,14 @@ class CharactersTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSour
     // MARK: - Properties
     
     private var characters: [CharactersListPageUI.CharacterItem] = []
-    private let onListEndIsNear: (Int) -> Void
-    
+    private let onListEndIsNear: (Int) -> Void // reachedRow -> void
+    private let onItemSelected: (Int) -> Void // itemId -> void
+
     // MARK: - Lifecycle
     
-    init(onListEndIsNear: @escaping (Int) -> Void) {
+    init(onListEndIsNear: @escaping (Int) -> Void, onItemSelected: @escaping (Int) -> Void) {
         self.onListEndIsNear = onListEndIsNear
+        self.onItemSelected = onItemSelected
     }
     
     // MARK: - Events
@@ -54,6 +56,11 @@ class CharactersTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSour
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sectedItem = characters[indexPath.row]
+        onItemSelected(sectedItem.id)
     }
 
     
