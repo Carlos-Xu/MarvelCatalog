@@ -26,7 +26,7 @@ class CharactersListPageVM {
     private let _messages = PublishSubject<String>()
     var messages: Observable<String> { _messages }
     
-    private let _listPageLoadRequests = PublishSubject<Int>() // load requested page. First page is page 0
+    private let _listPageLoadRequests = ReplaySubject<Int>.createUnbounded() // load requested page. First page is page 0
     
     // MARK: - Lifecycle
     
@@ -81,6 +81,7 @@ class CharactersListPageVM {
         
         // first loads
         _listPageLoadRequests.onNext(0)
+        _listPageLoadRequests.onNext(1)
     }
     
     // MARK: - Events
