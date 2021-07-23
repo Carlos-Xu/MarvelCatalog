@@ -19,12 +19,19 @@ class CharactersListPageVC: SuperViewController {
     @IBOutlet weak var charactersTableView: UITableView!
     
     // Other properties
-    let charactersTableAdapter = CharactersTableAdapter()
+    var charactersTableAdapter: CharactersTableAdapter!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vm.startInitialTasks()
+        
+        // set up table adapter
+        charactersTableAdapter = CharactersTableAdapter(onListEndIsNear: { [weak self] reachedRow in
+            self?.vm.onCharactersListEndNearlyReached(reachedRow: reachedRow)
+        })
         
         // set up Views
         charactersTableView.delegate = charactersTableAdapter

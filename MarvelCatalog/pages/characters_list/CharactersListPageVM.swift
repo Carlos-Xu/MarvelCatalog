@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 // config
-private let listPageSize = 20
+private let listPageSize = 50
 
 class CharactersListPageVM {
     
@@ -26,19 +26,23 @@ class CharactersListPageVM {
     private let _messages = PublishSubject<String>()
     var messages: Observable<String> { _messages }
     
-    private let _listPageLoadRequests = ReplaySubject<Int>.createUnbounded() // load requested page. First page is page 0
+    private let _listPageLoadRequests = PublishSubject<Int>() // load requested page. First page is page 0
     
     // MARK: - Lifecycle
     
     init(repo: MarvelRepo, schedulers: MySchedulers) {
         // set up
         ui = _stateReceiver
+            .observe(on: schedulers.serial(qos: .userInteractive))
             .map { CharactersListPageUI(from: $0) }
         
         _listPageLoadRequests
             .distinctUntilChanged() // prevent loading same page twice
-            .flatMap { pageToLoad -> Observable<(page: Int, response: CharacterDataWrapper)> in
-                let offset = pageToLoad * listPageSize
+            .flatMap { [weak self] pageToLoad -> Observable<(page: Int, response: CharacterDataWrapper)> in
+                guard let selfRef = self else {
+                    return Observable.empty()
+                }
+                let offset = selfRef.offset(forPage: pageToLoad)
                 
                 return repo.listCharacters(offset: offset, limit: listPageSize)
                     .asObservable()
@@ -74,27 +78,18 @@ class CharactersListPageVM {
                     var old = $0
                     old.ongoingListLoadingTasks -= 1
                     old.characterPages[loadingPage] = uiCharacters
+                    old.totalCharactersCount = response.data?.total ?? old.totalCharactersCount
                     return old
                 }
             }
             .disposed(by: disposeBag)
-        
-        // first loads
+    }
+    
+    func startInitialTasks() {
         _listPageLoadRequests.onNext(0)
-        _listPageLoadRequests.onNext(1)
     }
     
-    // MARK: - Events
-    
-    func requestListReload() {
-        //        _listPageLoadRequests.onNext(true)
-    }
-    
-    func requestTryLoadingListsNextPage() {
-        
-    }
-    
-    // MARK: - Helpers
+    // MARK: - State updates
     
     func updateState(_ updateFunc: (CharactersListPageState) -> CharactersListPageState) {
         stateSemaphore.wait()
@@ -106,6 +101,28 @@ class CharactersListPageVM {
         if oldState != newState {
             _stateReceiver.onNext(newState)
         }
+    }
+    
+    // MARK: - Events
+    
+    func onCharactersListEndNearlyReached(reachedRow: Int) {
+        let currentState = self.state
+        
+        let currentPage = reachedRow / listPageSize // ignores all decimals.
+        let nextPage = currentPage + 1
+        let nextPageStart = offset(forPage: nextPage)
+        
+        if nextPageStart < currentState.totalCharactersCount {
+            // load next page
+            _listPageLoadRequests.onNext(nextPage)
+        }
+    }
+    
+    // MARK: - Convenience
+    
+    func offset(forPage page: Int) -> Int {
+        let offset = page * listPageSize
+        return offset
     }
     
 }

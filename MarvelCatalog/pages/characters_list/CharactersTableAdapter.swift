@@ -14,6 +14,13 @@ class CharactersTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSour
     // MARK: - Properties
     
     private var characters: [CharactersListPageUI.CharacterItem] = []
+    private let onListEndIsNear: (Int) -> Void
+    
+    // MARK: - Lifecycle
+    
+    init(onListEndIsNear: @escaping (Int) -> Void) {
+        self.onListEndIsNear = onListEndIsNear
+    }
     
     // MARK: - Events
     
@@ -41,6 +48,10 @@ class CharactersTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSour
         
         // not using Marvel's "image_not_available" image as placeholder, so we can distinguish easily whether the image failed to load or it wasn't provided by the API
         cell.itemImage.kf.setImage(with: item.thumbnailUrl, placeholder: UIImage(named: "thumbnail_placeholder_square_48pt_x1"))
+        
+        if indexPath.row > (characters.endIndex - 20) {
+            self.onListEndIsNear(indexPath.row)
+        }
         
         return cell
     }

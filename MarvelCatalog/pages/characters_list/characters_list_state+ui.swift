@@ -9,6 +9,7 @@ import Foundation
 
 struct CharactersListPageState: Equatable {
     var characterPages: [Int: [CharactersListPageUI.CharacterItem]] = [:]
+    var totalCharactersCount: Int = Int.max
     var ongoingListLoadingTasks: Int = 0
 }
 
