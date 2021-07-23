@@ -59,11 +59,16 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Doy-N1-9MM">
+                                        <rect key="frame" x="197" y="399" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="yPg-lh-eTu" secondAttribute="bottom" id="6k2-Ah-otq"/>
+                                    <constraint firstItem="Doy-N1-9MM" firstAttribute="centerY" secondItem="yPg-lh-eTu" secondAttribute="centerY" id="88v-mA-DJA"/>
                                     <constraint firstItem="yPg-lh-eTu" firstAttribute="top" secondItem="5dk-MN-XWW" secondAttribute="top" id="BMR-7Q-iHo"/>
+                                    <constraint firstItem="Doy-N1-9MM" firstAttribute="centerX" secondItem="yPg-lh-eTu" secondAttribute="centerX" id="K53-eQ-2EJ"/>
                                     <constraint firstItem="yPg-lh-eTu" firstAttribute="leading" secondItem="5dk-MN-XWW" secondAttribute="leading" id="P66-JL-fdp"/>
                                     <constraint firstAttribute="trailing" secondItem="yPg-lh-eTu" secondAttribute="trailing" id="VtX-ow-taC"/>
                                 </constraints>
@@ -79,6 +84,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="charactersLoadingIndicator" destination="Doy-N1-9MM" id="Wba-1F-X8i"/>
                         <outlet property="charactersTableView" destination="yPg-lh-eTu" id="Myp-2V-hYF"/>
                     </connections>
                 </viewController>

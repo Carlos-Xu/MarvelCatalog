@@ -17,6 +17,7 @@ class CharactersListPageVC: SuperViewController {
     
     // IBOutlets
     @IBOutlet weak var charactersTableView: UITableView!
+    @IBOutlet weak var charactersLoadingIndicator: UIActivityIndicatorView!
     
     // Other properties
     var charactersTableAdapter: CharactersTableAdapter!
@@ -52,6 +53,14 @@ class CharactersListPageVC: SuperViewController {
         let listUpdated = charactersTableAdapter.updateListIfChanged(ui.characters)
         if listUpdated {
             charactersTableView.reloadData()
+        }
+        
+        if charactersLoadingIndicator.isAnimating != ui.listIsLoading {
+            if ui.listIsLoading {
+                charactersLoadingIndicator.startAnimating()
+            } else {
+                charactersLoadingIndicator.stopAnimating()
+            }
         }
     }
 
