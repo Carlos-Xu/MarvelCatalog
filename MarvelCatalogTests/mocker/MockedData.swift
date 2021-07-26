@@ -13,4 +13,6 @@ public final class MockedData {
     
     public static let sample_list_characters_response: URL = URL(fileURLWithPath: Bundle.main.path(forResource: "list_characters_example", ofType: "json")!)
 
+    public static let sample_single_character_response: URL = URL(fileURLWithPath: Bundle.main.path(forResource: "single_character_example", ofType: "json")!)
+
 }
