@@ -14,11 +14,10 @@ class CharacterDetailPageRouter {
         let di = AppDelegate.getSharedInstance().di
         let vc: CharacterDetailPageVC = CommonRouter.makeVC()
         
-        let vm = di.resolve(CharacterDetailPageVM.self)!
-        vm.targetCharacterId = characterId
+        let vmFactory = di.resolve(CharacterDetailPageVMFactory.self)!
         
         vc.schedulers = di.resolve(MySchedulers.self)!
-        vc.vm = vm
+        vc.vm = vmFactory.createVM(with: CharacterDetailPageVM.Config(targetCharacterId: characterId))
         
         return vc
     }

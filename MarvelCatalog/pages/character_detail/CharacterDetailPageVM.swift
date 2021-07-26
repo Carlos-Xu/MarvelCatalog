@@ -11,11 +11,15 @@ import RxSwift
 
 class CharacterDetailPageVM {
     
+    struct Config {
+        var targetCharacterId: Int
+    }
+    
     // MARK: - Properties
     
     // config properties
     
-    var targetCharacterId: Int!
+    private let config: Config
     
     // other properties
     
@@ -31,7 +35,9 @@ class CharacterDetailPageVM {
     
     // MARK: - Lifecycle
     
-    init(repo: MarvelRepo, schedulers: MySchedulers) {
+    init(repo: MarvelRepo, schedulers: MySchedulers, config: Config) {
+        self.config = config
+        
         // set up
         ui = _stateReceiver
             .observe(on: schedulers.serial(qos: .userInteractive))
@@ -80,7 +86,7 @@ class CharacterDetailPageVM {
     }
     
     func startInitialTasks() {
-        characterLoadRequests.onNext(targetCharacterId)
+        characterLoadRequests.onNext(config.targetCharacterId)
     }
     
     // MARK: - State updates
