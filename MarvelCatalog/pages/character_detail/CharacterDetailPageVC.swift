@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CharacterDetailPageVC: SuperViewController {
 
@@ -40,10 +41,16 @@ class CharacterDetailPageVC: SuperViewController {
             .disposed(by: viewWillAppearDisposeBag)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        characterImage.kf.cancelDownloadTask()
+    }
+    
     // MARK: - UI Workers
     
     func updateUI(_ ui: CharacterDetailPageUI) {
-        characterImage.kf.setImage(with: ui.characterImageUrl, placeholder: UIImage(named: "image_placeholder_marvel_portrait_big"))
+        characterImage.kf.setImage(with: ui.characterImageUrl, placeholder: UIImage(named: "image_placeholder_marvel_portrait_big"), options: [.retryStrategy(DelayRetryStrategy(maxRetryCount: 3))])
         
         characterName.text = ui.name
         
