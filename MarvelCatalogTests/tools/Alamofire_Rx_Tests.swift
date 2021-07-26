@@ -31,7 +31,7 @@ class Alamofire_Rx_Tests: XCTestCase {
         configuration.protocolClasses = [MockingURLProtocol.self] + (configuration.protocolClasses ?? [])
         sessionManager = Session(configuration: configuration)
         
-        sampleStringData = try! Data(contentsOf: MockedData.sampleJSON)
+        sampleStringData = try! Data(contentsOf: MockedData.sample_list_characters_response)
         sampleString = String(decoding: sampleStringData, as: UTF8.self)
         
         let mock = Mock(url: textEndpoint, dataType: .json, statusCode: 200, data: [.get: sampleStringData])

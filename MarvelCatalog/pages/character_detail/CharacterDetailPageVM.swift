@@ -46,7 +46,8 @@ class CharacterDetailPageVM {
         
         characterLoadRequests
             .flatMapLatest { characterId in
-                repo.getCharacter(characterId)
+                repo.getCharacterRequest(characterId)
+                    .performRequest()
                     .do(onSubscribe: { [weak self] in
                         self?.updateState { old in
                             var old = old

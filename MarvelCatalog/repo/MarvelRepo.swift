@@ -16,35 +16,38 @@ class MarvelRepo {
     let privateKey: String
     let publicKey: String
     
-    init() {
-        baseUrl = try! Config.value(for: .marvelApiBaseUrl)
-        privateKey = try! Config.value(for: .marvelPrivateApiKey)
-        publicKey = try! Config.value(for: .marvelPublicApiKey)
+    let session: Session
+    
+    init(baseUrl: String, privateKey: String, publicKey: String, session: Session = AF) {
+        self.baseUrl = baseUrl
+        self.privateKey = privateKey
+        self.publicKey = publicKey
+        self.session = session
     }
     
-    func listCharacters(offset: Int, limit: Int) -> Single<CharacterDataWrapper> {
+    func listCharactersRequest(offset: Int, limit: Int) -> RxDecodableRequest<CharacterDataWrapper> {
         let url = "\(baseUrl)/characters"
         
-        return rxPerformRequestDecodable(of: CharacterDataWrapper.self, decoder: getDecoder()) { [weak self] in
+        return RxDecodableRequest(decoder: getDecoder()) { [weak self] in
             guard let selfRef = self else {
                 throw SimpleError()
             }
             var parameters: Parameters = selfRef.generateAuthParameters()
             parameters["offset"] = offset
             parameters["limit"] = limit
-            return AF.request(url, method: .get, parameters: parameters)
+            return selfRef.session.request(url, method: .get, parameters: parameters)
         }
     }
     
-    func getCharacter(_ characterId: Int) -> Single<CharacterDataWrapper> {
+    func getCharacterRequest(_ characterId: Int) -> RxDecodableRequest<CharacterDataWrapper> {
         let url = "\(baseUrl)/characters/\(characterId)"
         
-        return rxPerformRequestDecodable(of: CharacterDataWrapper.self, decoder: getDecoder()) { [weak self] in
+        return RxDecodableRequest(decoder: getDecoder()) { [weak self] in
             guard let selfRef = self else {
                 throw SimpleError()
             }
             let parameters: Parameters = selfRef.generateAuthParameters()
-            return AF.request(url, method: .get, parameters: parameters)
+            return selfRef.session.request(url, method: .get, parameters: parameters)
         }
     }
     
@@ -63,7 +66,7 @@ class MarvelRepo {
         ]
     }
     
-    func getDecoder() -> Alamofire.DataDecoder {
+    private func getDecoder() -> Alamofire.DataDecoder {
         let decoder = JSONDecoder()
         
         decoder.dateDecodingStrategy = .iso8601 // Marvel doesn't state the time format. But It looks like iso8601.

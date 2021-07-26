@@ -44,7 +44,8 @@ class CharactersListPageVM {
                 }
                 let offset = selfRef.offset(forPage: pageToLoad)
                 
-                return repo.listCharacters(offset: offset, limit: listPageSize)
+                return repo.listCharactersRequest(offset: offset, limit: listPageSize)
+                    .performRequest()
                     .asObservable()
                     .do(onSubscribe: { [weak self] in
                         self?.updateState { old in
