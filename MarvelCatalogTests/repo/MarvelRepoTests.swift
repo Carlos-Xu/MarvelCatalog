@@ -23,7 +23,7 @@ class MarvelRepoTests: XCTestCase {
     }
 
     func testGetCharacters() throws {
-        let call = repo.listCharacters().toBlocking()
+        let call = repo.listCharacters(offset: 0, limit: 20).toBlocking()
         
         do {
             let response = try call.toArray()
