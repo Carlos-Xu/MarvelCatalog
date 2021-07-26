@@ -244,10 +244,10 @@
 				62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */,
 				62343EE526A838E50068FDE1 /* CharactersListPageRouter.swift */,
 				62343EE926A83C060068FDE1 /* CharactersListPageVM.swift */,
+				624E5B7326AECBCD0088D15F /* CharactersListPageVMFactory.swift */,
 				62343EEB26A83D220068FDE1 /* characters_list_state+ui.swift */,
 				6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */,
 				6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */,
-				624E5B7326AECBCD0088D15F /* CharactersListPageVMFactory.swift */,
 			);
 			path = characters_list;
 			sourceTree = "<group>";

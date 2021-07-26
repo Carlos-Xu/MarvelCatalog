@@ -46,7 +46,6 @@ class CharactersListPageVM {
                 
                 return repo.listCharactersRequest(offset: offset, limit: listPageSize)
                     .performRequest()
-                    .asObservable()
                     .do(onSubscribe: { [weak self] in
                         self?.updateState { old in
                             var old = old
@@ -57,20 +56,13 @@ class CharactersListPageVM {
                     .map { (page: pageToLoad, response: $0) }
                     .retry(when: { errors in
                         errors.delay(.seconds(1), scheduler: schedulers.concurrent(qos: .userInitiated))
-                    })
+                    }) // never fails
+                    .asObservable()
             }
             .subscribe(on: schedulers.serial(qos: .userInitiated))
-            .subscribe { [weak self] event in
-                guard let loadingPage = event.element?.page, let response = event.element?.response else {
-                    // request failed
-                    self?.updateState { old in
-                        var old = old
-                        old.ongoingListLoadingTasks -= 1
-                        return old
-                    }
-                    self?._messages.onNext("Failed to load characters list")
-                    return
-                }
+            .subscribe(onNext: { [weak self] event in
+                let response = event.response
+                let loadingPage = event.page
                 
                 let characters: [Character] = response.data?.results ?? []
                 let uiCharacters = characters.compactMap{ CharactersListPageUI.CharacterItem(from: $0, thumbnailType: .square_medium) }
@@ -82,7 +74,7 @@ class CharactersListPageVM {
                     old.totalCharactersCount = response.data?.total ?? old.totalCharactersCount
                     return old
                 }
-            }
+            })
             .disposed(by: disposeBag)
     }
     
