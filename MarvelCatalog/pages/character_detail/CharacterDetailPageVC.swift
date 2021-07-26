@@ -15,6 +15,14 @@ class CharacterDetailPageVC: SuperViewController {
     var schedulers: MySchedulers!
     var vm: CharacterDetailPageVM!
     
+    // IBOutlets
+    @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var characterName: UILabel!
+    @IBOutlet weak var descriptionTitle: UILabel!
+    @IBOutlet weak var descriptionDetails: UILabel!
+    @IBOutlet weak var pageLoadingIndicator: UIActivityIndicatorView!
+    
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -35,7 +43,24 @@ class CharacterDetailPageVC: SuperViewController {
     // MARK: - UI Workers
     
     func updateUI(_ ui: CharacterDetailPageUI) {
-        print(ui)
+        characterImage.kf.setImage(with: ui.characterImageUrl, placeholder: UIImage(named: "image_placeholder_marvel_portrait_big"))
+        
+        characterName.text = ui.name
+        
+        if let description = ui.description, !description.isEmpty {
+            descriptionDetails.text = description
+        } else {
+            descriptionDetails.text = "(No description available)"
+        }
+        
+        if pageLoadingIndicator.isAnimating != ui.isLoading {
+            if ui.isLoading {
+                pageLoadingIndicator.startAnimating()
+            } else {
+                pageLoadingIndicator.stopAnimating()
+            }
+        }
+        
     }
     
 }

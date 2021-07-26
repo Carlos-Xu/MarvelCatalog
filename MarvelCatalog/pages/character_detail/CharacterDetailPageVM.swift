@@ -63,7 +63,7 @@ class CharacterDetailPageVM {
                         var state = state
                         state.name = character.name ?? ""
                         state.description = character.description
-                        state.characterImageUrl = character.thumbnail?.buildFullURL(ofType: .landscape_medium)
+                        state.characterImageUrl = character.thumbnail?.buildFullURL(ofType: .landscape_xlarge)
                         state.isLoading = false
                         state.staticErrorMessage = nil
                         return state
