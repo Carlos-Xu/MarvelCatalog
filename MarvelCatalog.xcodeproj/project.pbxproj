@@ -50,6 +50,7 @@
 		62472FB426A70AE300C9441E /* Integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FB326A70AE300C9441E /* Integers.swift */; };
 		62472FB726A7132C00C9441E /* MarvelRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472FB626A7132C00C9441E /* MarvelRepoTests.swift */; };
 		624E5B7226AEC35A0088D15F /* CharacterDetailPageVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624E5B7126AEC3590088D15F /* CharacterDetailPageVMFactory.swift */; };
+		624E5B7426AECBCD0088D15F /* CharactersListPageVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624E5B7326AECBCD0088D15F /* CharactersListPageVMFactory.swift */; };
 		627CA9FD26A899C20030C1C3 /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627CA9FC26A899C20030C1C3 /* SuperViewController.swift */; };
 		6298C1C826A953710015F8F9 /* CharactersTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */; };
 		6298C1CA26A957090015F8F9 /* CharacterListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */; };
@@ -130,6 +131,7 @@
 		62472FB326A70AE300C9441E /* Integers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integers.swift; sourceTree = "<group>"; };
 		62472FB626A7132C00C9441E /* MarvelRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepoTests.swift; sourceTree = "<group>"; };
 		624E5B7126AEC3590088D15F /* CharacterDetailPageVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPageVMFactory.swift; sourceTree = "<group>"; };
+		624E5B7326AECBCD0088D15F /* CharactersListPageVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageVMFactory.swift; sourceTree = "<group>"; };
 		627CA9FC26A899C20030C1C3 /* SuperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableAdapter.swift; sourceTree = "<group>"; };
 		6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListItemCell.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				62343EEB26A83D220068FDE1 /* characters_list_state+ui.swift */,
 				6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */,
 				6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */,
+				624E5B7326AECBCD0088D15F /* CharactersListPageVMFactory.swift */,
 			);
 			path = characters_list;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 			files = (
 				62472FB026A6FB9300C9441E /* hashing.swift in Sources */,
 				62343ECC26A81F570068FDE1 /* ComicList.swift in Sources */,
+				624E5B7426AECBCD0088D15F /* CharactersListPageVMFactory.swift in Sources */,
 				6298C1CC26A9631B0015F8F9 /* MarvelImageVariant.swift in Sources */,
 				62343ED426A81FA70068FDE1 /* EventList.swift in Sources */,
 				62343EEA26A83C060068FDE1 /* CharactersListPageVM.swift in Sources */,

@@ -26,8 +26,8 @@ func initializeDIContainer() -> Container {
     .inObjectScope(.container)
 
     
-    container.register(CharactersListPageVM.self) { r in
-        CharactersListPageVM(repo: r.resolve(MarvelRepo.self)!, schedulers: r.resolve(MySchedulers.self)!)
+    container.register(CharactersListPageVMFactory.self) { r in
+        CharactersListPageVMFactory(repo: r.resolve(MarvelRepo.self)!, schedulers: r.resolve(MySchedulers.self)!)
     }
     .inObjectScope(.transient)
     
