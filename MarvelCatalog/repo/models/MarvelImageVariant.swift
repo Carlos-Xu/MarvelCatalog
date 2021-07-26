@@ -35,8 +35,8 @@ enum MarvelImageVariant: String {
     case landscape_small // 120x90px
     case landscape_medium // 175x130px
     case landscape_large // 190x140px
-    case landscape_xlarge // 270x200px
     case landscape_amazing // 250x156px
+    case landscape_xlarge // 270x200px
     case landscape_incredible // 464x261px
     
     
