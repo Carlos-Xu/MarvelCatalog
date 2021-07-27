@@ -15,7 +15,7 @@ struct CharactersListPageState: Equatable {
 }
 
 
-struct CharactersListPageUI {
+struct CharactersListPageUI: Equatable {
     
     var characters: [CharacterItem]
     var listIsLoading: Bool

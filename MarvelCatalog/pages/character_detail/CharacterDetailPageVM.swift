@@ -42,7 +42,7 @@ class CharacterDetailPageVM {
         ui = _stateReceiver
             .observe(on: schedulers.serial(qos: .userInteractive))
             .map { CharacterDetailPageUI(from: $0) }
-        
+            .distinctUntilChanged()
         
         characterLoadRequests
             .flatMapLatest { characterId in

@@ -17,7 +17,7 @@ struct CharacterDetailPageState: Equatable {
 }
 
 
-struct CharacterDetailPageUI {
+struct CharacterDetailPageUI: Equatable {
     
     var characterImageUrl: URL?
     var name: String

@@ -32,6 +32,7 @@ class CharactersListPageVM {
         ui = _stateReceiver
             .observe(on: schedulers.serial(qos: .userInteractive))
             .map { CharactersListPageUI(from: $0) }
+            .distinctUntilChanged()
         
         _listPageLoadRequests
             .distinctUntilChanged() // prevent loading same page twice
