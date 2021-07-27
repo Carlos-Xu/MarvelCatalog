@@ -44,18 +44,17 @@ class CharactersListPageVM {
                 }
                 let offset = selfRef.offset(forPage: pageToLoad)
                 
+                self?.updateState { old in
+                    var old = old
+                    old.ongoingListLoadingTasks += 1
+                    return old
+                }
+
                 return repo.listCharactersRequest(offset: offset, limit: listPageSize)
                     .performRequest()
-                    .do(onSubscribe: { [weak self] in
-                        self?.updateState { old in
-                            var old = old
-                            old.ongoingListLoadingTasks += 1
-                            return old
-                        }
-                    })
                     .map { (page: pageToLoad, response: $0) }
-                    .retry(when: { errors in
-                        errors.delay(.seconds(1), scheduler: schedulers.concurrent(qos: .userInitiated))
+                    .retry(when: { errors -> Observable<Error> in
+                        return errors.delay(.seconds(1), scheduler: schedulers.concurrent(qos: .userInitiated))
                     }) // never fails
                     .asObservable()
             }
