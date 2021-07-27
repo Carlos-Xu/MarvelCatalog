@@ -35,6 +35,7 @@
 		62343EF126A84C4E0068FDE1 /* MySchedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EF026A84C4E0068FDE1 /* MySchedulers.swift */; };
 		6238850526B001D700C0E476 /* HashingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238850426B001D700C0E476 /* HashingTests.swift */; };
 		6238850726B0052800C0E476 /* sample_md5s.json in Resources */ = {isa = PBXBuildFile; fileRef = 6238850626B0052800C0E476 /* sample_md5s.json */; };
+		6238850C26B034D100C0E476 /* MarvelRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238850B26B034D100C0E476 /* MarvelRepoImpl.swift */; };
 		62472F6726A6E93000C9441E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6626A6E93000C9441E /* AppDelegate.swift */; };
 		62472F6926A6E93000C9441E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6826A6E93000C9441E /* SceneDelegate.swift */; };
 		62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62472F6A26A6E93000C9441E /* CharactersListPageVC.swift */; };
@@ -116,6 +117,7 @@
 		62343EF026A84C4E0068FDE1 /* MySchedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySchedulers.swift; sourceTree = "<group>"; };
 		6238850426B001D700C0E476 /* HashingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashingTests.swift; sourceTree = "<group>"; };
 		6238850626B0052800C0E476 /* sample_md5s.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_md5s.json; sourceTree = "<group>"; };
+		6238850B26B034D100C0E476 /* MarvelRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepoImpl.swift; sourceTree = "<group>"; };
 		62472F6326A6E93000C9441E /* MarvelCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62472F6626A6E93000C9441E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62472F6826A6E93000C9441E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				62343EC026A81A270068FDE1 /* models */,
 				62472FAC26A6F81D00C9441E /* MarvelRepo.swift */,
 				624E5B8C26AF38B80088D15F /* RxDecodableRequest.swift */,
+				6238850B26B034D100C0E476 /* MarvelRepoImpl.swift */,
 			);
 			path = repo;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				62472F7126A6E93000C9441E /* MarvelCatalog.xcdatamodeld in Sources */,
 				62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */,
 				6298C1CA26A957090015F8F9 /* CharacterListItemCell.swift in Sources */,
+				6238850C26B034D100C0E476 /* MarvelRepoImpl.swift in Sources */,
 				62343ED226A81F940068FDE1 /* StorySummary.swift in Sources */,
 				62343EC226A81A580068FDE1 /* CharacterDataWrapper.swift in Sources */,
 				62343ECE26A81F690068FDE1 /* ComicSummary.swift in Sources */,

@@ -25,7 +25,7 @@ func initializeDIContainer() -> Container {
         let privateKey: String = try! Config.value(for: .marvelPrivateApiKey)
         let publicKey: String = try! Config.value(for: .marvelPublicApiKey)
         
-        return MarvelRepo(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey)
+        return MarvelRepoImpl(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey)
     }
     .inObjectScope(.container)
 
