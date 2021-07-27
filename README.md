@@ -35,7 +35,7 @@ Para la inyección de dependencias se ha utilizado Swinject.
 
 Se han tenido en cuenta los principios SOLID a la hora organizar el código. Tomemos por ejemplo el protocolo MarvelRepo y la clase MarvelRepoImpl.
 
-Estos separan la abstracción y la implementación concreta. Esto hace que se puedan aplicar cambios en la implementación o sustituirla enteramente por otra implementación sin afectar a ninguna de las clases que usan MarvelRepo, así cumpliendo con el "Open–closed principle".
+Estos separan la abstracción y la implementación concreta. Esto hace que se puedan aplicar cambios en la implementación o sustituirla enteramente por otra implementación sin afectar a ninguna de las clases que usan MarvelRepo, así cumpliendo con el **"Open–closed principle"**.
 
 De hecho ninguna clase en toda la aplicación sabe que está utilizando MarvelRepoImpl, porque esta se inyecta por Inyección de Dependencias. Todas las clases que la usan dependen de la abstracción, y les da igual cuál de las implementaciones utiliza, cumpliendo al mismo tiempo con **"Liskov substitution principle"** y **"Dependency inversion principle"**
 
