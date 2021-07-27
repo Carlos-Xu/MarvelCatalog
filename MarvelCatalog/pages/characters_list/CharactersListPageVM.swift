@@ -8,9 +8,6 @@
 import Foundation
 import RxSwift
 
-// config
-private let listPageSize = 50
-
 class CharactersListPageVM {
     
     // MARK: - Properties
@@ -50,7 +47,7 @@ class CharactersListPageVM {
                     return old
                 }
 
-                return repo.listCharactersRequest(offset: offset, limit: listPageSize)
+                return repo.listCharactersRequest(offset: offset, limit: CharactersListPageConfig.listPageSize)
                     .performRequest()
                     .map { (page: pageToLoad, response: $0) }
                     .retry(when: { errors -> Observable<Error> in
@@ -101,7 +98,7 @@ class CharactersListPageVM {
     func onCharactersListEndNearlyReached(reachedRow: Int) {
         let currentState = self.state
         
-        let currentPage = reachedRow / listPageSize // ignores all decimals.
+        let currentPage = reachedRow / CharactersListPageConfig.listPageSize // ignores all decimals.
         let nextPage = currentPage + 1
         let nextPageStart = offset(forPage: nextPage)
         
@@ -114,7 +111,7 @@ class CharactersListPageVM {
     // MARK: - Convenience
     
     func offset(forPage page: Int) -> Int {
-        let offset = page * listPageSize
+        let offset = page * CharactersListPageConfig.listPageSize
         return offset
     }
     

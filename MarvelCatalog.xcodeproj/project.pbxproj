@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0BEABDCF7AA98D7D90B3D5B8 /* Pods_MarvelCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7454744887B4335EF46A8B /* Pods_MarvelCatalog.framework */; };
+		6218D48C26B0A1950051AE51 /* CharactersListPageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6218D48B26B0A1950051AE51 /* CharactersListPageConfig.swift */; };
 		62343EBA26A80B6B0068FDE1 /* Alamofire+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EB926A80B6B0068FDE1 /* Alamofire+Rx.swift */; };
 		62343EBC26A80C770068FDE1 /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EBB26A80C770068FDE1 /* RepositoryError.swift */; };
 		62343EBE26A815230068FDE1 /* SimpleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62343EBD26A815230068FDE1 /* SimpleError.swift */; };
@@ -90,6 +91,7 @@
 		034A77D6DBAFB714193E7CA5 /* Pods-MarvelCatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalogTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelCatalogTests/Pods-MarvelCatalogTests.release.xcconfig"; sourceTree = "<group>"; };
 		1C048FF7599061FCE9CB5D15 /* Pods_MarvelCatalog_MarvelCatalogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCatalog_MarvelCatalogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B8FB957483BF1710B7D5D6 /* Pods-MarvelCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCatalog.release.xcconfig"; path = "Target Support Files/Pods-MarvelCatalog/Pods-MarvelCatalog.release.xcconfig"; sourceTree = "<group>"; };
+		6218D48B26B0A1950051AE51 /* CharactersListPageConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPageConfig.swift; sourceTree = "<group>"; };
 		62343EB926A80B6B0068FDE1 /* Alamofire+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+Rx.swift"; sourceTree = "<group>"; };
 		62343EBB26A80C770068FDE1 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		62343EBD26A815230068FDE1 /* SimpleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleError.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				62343EEB26A83D220068FDE1 /* characters_list_state+ui.swift */,
 				6298C1C726A953710015F8F9 /* CharactersTableAdapter.swift */,
 				6298C1C926A957090015F8F9 /* CharacterListItemCell.swift */,
+				6218D48B26B0A1950051AE51 /* CharactersListPageConfig.swift */,
 			);
 			path = characters_list;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				62343EEA26A83C060068FDE1 /* CharactersListPageVM.swift in Sources */,
 				62343EE126A837920068FDE1 /* CommonRouter.swift in Sources */,
 				62472F7126A6E93000C9441E /* MarvelCatalog.xcdatamodeld in Sources */,
+				6218D48C26B0A1950051AE51 /* CharactersListPageConfig.swift in Sources */,
 				62472F6B26A6E93000C9441E /* CharactersListPageVC.swift in Sources */,
 				6298C1CA26A957090015F8F9 /* CharacterListItemCell.swift in Sources */,
 				6238850C26B034D100C0E476 /* MarvelRepoImpl.swift in Sources */,
