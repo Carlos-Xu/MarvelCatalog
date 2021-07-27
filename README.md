@@ -34,16 +34,16 @@ Para la inyección de dependencias se ha utilizado Swinject.
 ## Directorios
 
 El proyecto tiene los siguientes directorios principales:
-- di: Contiene el código que configura la inyección de dependencias.
-- pages: contiene los controladores para las distintas pantallas, una carpeta por pantalla, además de una carpeta "common" para el código que utilizan varias pantallas.
-- repo: contiene el código que interactura con la API de Marvel.
-- resources: contiene recursos que la app utiliza, como ejemplos de respuestas de la API de Marvel en formato json.
-- tools: contiene herramientas de conveniencia. No son parte de ninguna capa ni módulo, pero hacen la vida más fácil, por ejemplo: MD5, generador de strings únicos, etc.
+- **di:** Contiene el código que configura la inyección de dependencias.
+- **pages:** contiene los controladores para las distintas pantallas, una carpeta por pantalla, además de una carpeta "common" para el código que utilizan varias pantallas.
+- **repo:** contiene el código que interactura con la API de Marvel.
+- **resources:** contiene recursos que la app utiliza, como ejemplos de respuestas de la API de Marvel en formato json.
+- **tools:** contiene herramientas de conveniencia. No son parte de ninguna capa ni módulo, pero hacen la vida más fácil, por ejemplo: MD5, generador de strings únicos, etc.
 
 ## Testing
 
 El código está pensado para ser fácilmente testeable.
 
-No todo el código es está incluido en el testing. Eso sería demasido trabajo y en muchas ocasiones absurdo. He elegido las partes más sensibles de la aplicación, las que más tienden a contener errores y he escrito tests unitarios para estos.
+No todo el código es está incluido en el testing. Eso sería demasido trabajo y en muchas ocasiones absurdo. He elegido las partes más sensibles de la aplicación, las que más tienden a contener errores ocultos y he escrito tests unitarios para estos.
 
 Para testear código con RxSwift he utilizado RxBlocking. Y para hacer test con Alamofire he utilizado WeTransfer/Mocker.
