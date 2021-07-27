@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 /**
- Provides access to Marvel's API's.
+ Simple implementation of MarvelRepo
  */
 class MarvelRepoImpl: MarvelRepo {
     
