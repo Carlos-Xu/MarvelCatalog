@@ -23,7 +23,6 @@ class Alamofire_Rx_Tests: XCTestCase {
     let textEndpoint = URL(string: "https://api.example.com/text")!
     let jsonEndpoint = URL(string: "https://api.example.com/json")!
     var sessionManager: Session!
-    var sampleStringData: Data!
     var sampleString: String!
     
     override func setUpWithError() throws {
@@ -31,10 +30,9 @@ class Alamofire_Rx_Tests: XCTestCase {
         configuration.protocolClasses = [MockingURLProtocol.self] + (configuration.protocolClasses ?? [])
         sessionManager = Session(configuration: configuration)
         
-        sampleStringData = try! Data(contentsOf: MockedData.sample_list_characters_response)
-        sampleString = String(decoding: sampleStringData, as: UTF8.self)
+        sampleString = "sample text"
         
-        let mock = Mock(url: textEndpoint, dataType: .json, statusCode: 200, data: [.get: sampleStringData])
+        let mock = Mock(url: textEndpoint, dataType: .json, statusCode: 200, data: [.get: Data(sampleString.utf8)])
         mock.register()
         
         
