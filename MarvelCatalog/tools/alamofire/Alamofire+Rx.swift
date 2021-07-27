@@ -9,6 +9,11 @@ import Foundation
 import Alamofire
 import RxSwift
 
+/**
+ Receives a closure that generates Alamofire requests. Wraps the request inside a Rx Single.
+ 
+ Generates a new request each time the request is performed or retried.
+ */
 func rxPerformRequest(requestGenerator: @escaping () throws -> DataRequest) -> Single<String> {
     Single<String>.create { observer in
         let request: DataRequest
@@ -39,7 +44,11 @@ func rxPerformRequest(requestGenerator: @escaping () throws -> DataRequest) -> S
     }
 }
 
-
+/**
+ Receives a closure that generates Alamofire requests. Wraps the request inside a Rx Single.
+ 
+ Generates a new request each time the request is performed or retried.
+ */
 func rxPerformRequestDecodable<T>(of type: T.Type = T.self, decoder: Alamofire.DataDecoder = JSONDecoder(), requestGenerator: @escaping () throws -> DataRequest) -> Single<T> where T: Decodable {
     return Single<T>.create { observer in
         let request: DataRequest

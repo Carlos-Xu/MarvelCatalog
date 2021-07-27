@@ -8,6 +8,9 @@
 import Foundation
 import RxSwift
 
+/**
+ Provides schedulers for RxSwift operations
+ */
 protocol MySchedulers {
   
     func ui() -> SchedulerType
