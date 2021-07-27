@@ -33,7 +33,7 @@ Para la inyección de dependencias se ha utilizado Swinject.
 
 ### Principios
 
-Se han tenido en cuenta los principios SOLID a la hora organizar el código. Tomemos por ejemplo el protocolo MarvelRepo y la clase MarvelRepoImpl.
+Se han tenido en cuenta los principios **SOLID** a la hora organizar el código. Tomemos por ejemplo el protocolo MarvelRepo y la clase MarvelRepoImpl.
 
 Estos separan la abstracción y la implementación concreta. Esto hace que se puedan aplicar cambios en la implementación o sustituirla enteramente por otra implementación sin afectar a ninguna de las clases que usan MarvelRepo, así cumpliendo con el **"Open–closed principle"**.
 
@@ -41,7 +41,7 @@ De hecho ninguna clase en toda la aplicación sabe que está utilizando MarvelRe
 
 **"Single-responsibility principle"** se cumple naturalmente, ya que Marvel Repo solo se encarga de generar consultas que después se pueden ejecutar. Y **"The Interface segregation principle"** no llega a aplicarse porque aún no hay necesidad.
 
-Uno de los principios que se han aplicado que no pertenecen a SOLID (aunque de alguna manera se recomienda) es el principio de **"Composition over inheritance"** del libro **"Effective Java"**, aunque en algún caso concreto se ha hecho una excepción, como en el caso de los UIViewControllers, donde la herencia es un requisito.
+Uno de los principios que se han aplicado que no pertenecen a **SOLID** (aunque de alguna manera lo recomienda) es el principio de **"Composition over inheritance"** del libro **"Effective Java"**, aunque en algún caso concreto se ha hecho una excepción, como en el caso de los UIViewControllers, donde la herencia es un requisito.
 
 Además he creado un SuperViewController para funcionalidades que no se pueden sacar del Controlador, ya que van ligadas al ciclo de vida de este.
 
