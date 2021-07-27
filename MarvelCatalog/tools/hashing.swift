@@ -10,6 +10,6 @@ import CryptoKit
 
 
 func MD5(string: String) -> String {
-    let computed = Insecure.MD5.hash(data: string.data(using: .utf8)!)
+    let computed = Insecure.MD5.hash(data: Data(string.utf8))
     return computed.map { String(format: "%02hhx", $0) }.joined()
 }
