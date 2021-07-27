@@ -18,6 +18,7 @@ class CharactersListPageVC: SuperViewController {
     // IBOutlets
     @IBOutlet weak var charactersTableView: UITableView!
     @IBOutlet weak var charactersLoadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var attributionLabel: UILabel!
     
     // Other properties
     var charactersTableAdapter: CharactersTableAdapter!
@@ -65,6 +66,8 @@ class CharactersListPageVC: SuperViewController {
                 charactersLoadingIndicator.stopAnimating()
             }
         }
+        
+        attributionLabel.text = ui.attributionText
     }
 
 }

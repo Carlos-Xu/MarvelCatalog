@@ -72,6 +72,7 @@ class CharactersListPageVM {
                     old.ongoingListLoadingTasks -= 1
                     old.characterPages[loadingPage] = uiCharacters
                     old.totalCharactersCount = response.data?.total ?? old.totalCharactersCount
+                    old.attributionText = response.attributionText ?? old.attributionText
                     return old
                 }
             })

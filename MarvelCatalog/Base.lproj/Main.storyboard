@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yPg-lh-eTu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="787.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="characterListItemCell" rowHeight="75" id="CBv-WS-UeZ" customClass="CharacterListItemCell" customModule="MarvelCatalog" customModuleProvider="target">
@@ -60,17 +60,38 @@
                                         </prototypes>
                                     </tableView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Doy-N1-9MM">
-                                        <rect key="frame" x="197" y="399" width="20" height="20"/>
+                                        <rect key="frame" x="197" y="384" width="20" height="20"/>
                                     </activityIndicatorView>
+                                    <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ihP-aH-kcX" userLabel="BootomViewsContainer">
+                                        <rect key="frame" x="0.0" y="787.5" width="414" height="30.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attributionText label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4f-tg-xnN">
+                                                <rect key="frame" x="8" y="8" width="398" height="14.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="D4f-tg-xnN" firstAttribute="leading" secondItem="ihP-aH-kcX" secondAttribute="leadingMargin" id="0ty-pU-oFm"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="D4f-tg-xnN" secondAttribute="bottom" id="3yX-1B-mAJ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="D4f-tg-xnN" secondAttribute="trailing" id="8pv-g1-y65"/>
+                                            <constraint firstItem="D4f-tg-xnN" firstAttribute="top" secondItem="ihP-aH-kcX" secondAttribute="topMargin" id="Mrc-PJ-kCi"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="yPg-lh-eTu" secondAttribute="bottom" id="6k2-Ah-otq"/>
+                                    <constraint firstItem="ihP-aH-kcX" firstAttribute="top" secondItem="yPg-lh-eTu" secondAttribute="bottom" id="6k2-Ah-otq"/>
                                     <constraint firstItem="Doy-N1-9MM" firstAttribute="centerY" secondItem="yPg-lh-eTu" secondAttribute="centerY" id="88v-mA-DJA"/>
                                     <constraint firstItem="yPg-lh-eTu" firstAttribute="top" secondItem="5dk-MN-XWW" secondAttribute="top" id="BMR-7Q-iHo"/>
+                                    <constraint firstAttribute="trailing" secondItem="ihP-aH-kcX" secondAttribute="trailing" id="GPS-7o-xmV"/>
                                     <constraint firstItem="Doy-N1-9MM" firstAttribute="centerX" secondItem="yPg-lh-eTu" secondAttribute="centerX" id="K53-eQ-2EJ"/>
                                     <constraint firstItem="yPg-lh-eTu" firstAttribute="leading" secondItem="5dk-MN-XWW" secondAttribute="leading" id="P66-JL-fdp"/>
+                                    <constraint firstAttribute="bottom" secondItem="ihP-aH-kcX" secondAttribute="bottom" id="Vno-6m-dPk"/>
                                     <constraint firstAttribute="trailing" secondItem="yPg-lh-eTu" secondAttribute="trailing" id="VtX-ow-taC"/>
+                                    <constraint firstItem="ihP-aH-kcX" firstAttribute="leading" secondItem="5dk-MN-XWW" secondAttribute="leading" id="ZVc-tb-yvU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -84,6 +105,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attributionLabel" destination="D4f-tg-xnN" id="EC5-b1-yzq"/>
                         <outlet property="charactersLoadingIndicator" destination="Doy-N1-9MM" id="Wba-1F-X8i"/>
                         <outlet property="charactersTableView" destination="yPg-lh-eTu" id="Myp-2V-hYF"/>
                     </connections>

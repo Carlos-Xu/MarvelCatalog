@@ -11,6 +11,7 @@ struct CharactersListPageState: Equatable {
     var characterPages: [Int: [CharactersListPageUI.CharacterItem]] = [:]
     var totalCharactersCount: Int = Int.max
     var ongoingListLoadingTasks: Int = 0
+    var attributionText: String = ""
 }
 
 
@@ -18,7 +19,8 @@ struct CharactersListPageUI {
     
     var characters: [CharacterItem]
     var listIsLoading: Bool
-    
+    var attributionText: String
+
     init(from state: CharactersListPageState) {
         let entries = state.characterPages.map{ $0 }
         self.characters = entries
@@ -26,6 +28,8 @@ struct CharactersListPageUI {
             .flatMap { $1 }
         
         self.listIsLoading = state.ongoingListLoadingTasks > 0
+        
+        self.attributionText = state.attributionText
     }
     
     struct CharacterItem: Equatable {
