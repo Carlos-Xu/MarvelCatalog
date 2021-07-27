@@ -44,7 +44,3 @@ func initializeDIContainer() -> Container {
     return container
 }
 
-
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let aVariable = appDelegate.di
-
