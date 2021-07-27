@@ -12,6 +12,9 @@ import Swinject
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /**
+     Container for dependency injection.
+     */
     let di: Container = {
         let newContainer = initializeDIContainer()
         return newContainer

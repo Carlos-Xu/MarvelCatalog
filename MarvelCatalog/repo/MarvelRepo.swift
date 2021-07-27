@@ -9,6 +9,9 @@ import Foundation
 import Alamofire
 import RxSwift
 
+/**
+ Provides access to Marvel's API's.
+ */
 class MarvelRepo {
     
     let baseUrl: String

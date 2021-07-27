@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 /**
- Wrapper class capable of generating a new Alamofire request each time it is performed.
+ Wrapper class capable of generating a new Alamofire request each time it is performed or retried. Wraps execution of the request inside Rx Single.
  */
 class RxDecodableRequest<T: Decodable> {
    
