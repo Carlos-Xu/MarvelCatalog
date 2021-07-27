@@ -52,8 +52,13 @@ class MarvelRepoTests: XCTestCase {
         let request = mockedRepo.listCharactersRequest(offset: 0, limit: 20)
         let afRequest = try! request.generageAFRequest()
         
+        guard let url = try afRequest.convertible.asURLRequest().url else {
+            XCTFail()
+            return
+        }
+        
         let charactersData = try! Data(contentsOf: MockedData.sample_list_characters_response)
-        let mock = Mock(url: afRequest.request!.url!, ignoreQuery: true, dataType: .json, statusCode: 200, data: [.get: charactersData])
+        let mock = Mock(url: url, ignoreQuery: true, dataType: .json, statusCode: 200, data: [.get: charactersData])
         mock.register()
 
         let response = try? request.performRequest().toBlocking().single()
@@ -61,7 +66,7 @@ class MarvelRepoTests: XCTestCase {
         XCTAssertNotNil(response)
     }
 
-    func testGetCharacter() throws {
+    func testGetCharacterReal() throws {
         let characterId = 1011334 // 3-D Man
         let call = repo.getCharacterRequest(characterId).performRequest().toBlocking()
 
@@ -73,14 +78,20 @@ class MarvelRepoTests: XCTestCase {
         }
     }
     
-    func testGetCharacterFormat() {
+    func testGetCharacterFormat() throws {
         let characterId = 1011334 // 3-D Man
         
         let request = mockedRepo.getCharacterRequest(characterId)
-        let afRequest = try! request.generageAFRequest()
+        let afRequest = try request.generageAFRequest()
         
+        guard let url = try afRequest.convertible.asURLRequest().url else {
+            XCTFail()
+            return
+        }
+        
+
         let sampleData = try! Data(contentsOf: MockedData.sample_single_character_response)
-        let mock = Mock(url: afRequest.request!.url!, ignoreQuery: true, dataType: .json, statusCode: 200, data: [.get: sampleData])
+        let mock = Mock(url: url, ignoreQuery: true, dataType: .json, statusCode: 200, data: [.get: sampleData])
         mock.register()
 
         let response = try? request.performRequest().toBlocking().single()
