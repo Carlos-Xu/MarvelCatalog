@@ -129,10 +129,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j88-Bk-WKq" userLabel="ScrollContainer">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="402.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="433.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHG-YB-Uvk" userLabel="ScrollContents">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="402.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="433.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder_marvel_portrait_big" translatesAutoresizingMaskIntoConstraints="NO" id="xRl-0l-iKp">
                                                                 <rect key="frame" x="8" y="0.0" width="398" height="295"/>
@@ -165,7 +165,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epR-cw-DoP" userLabel="DetailsBox">
-                                                                <rect key="frame" x="8" y="341" width="398" height="61.5"/>
+                                                                <rect key="frame" x="8" y="341" width="398" height="92.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x7-7Q-OFd">
                                                                         <rect key="frame" x="8" y="8" width="382" height="17"/>
@@ -179,14 +179,23 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribution text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHy-hJ-0wz">
+                                                                        <rect key="frame" x="8" y="69.5" width="382" height="15"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="N63-5U-qLH" secondAttribute="trailing" id="BDV-Wv-3Jy"/>
                                                                     <constraint firstItem="8x7-7Q-OFd" firstAttribute="leading" secondItem="epR-cw-DoP" secondAttribute="leadingMargin" id="FNO-kA-rFi"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="WHy-hJ-0wz" secondAttribute="bottom" id="FeQ-Vb-3AJ"/>
                                                                     <constraint firstItem="N63-5U-qLH" firstAttribute="top" secondItem="8x7-7Q-OFd" secondAttribute="bottom" constant="8" id="IzG-UV-xNn"/>
                                                                     <constraint firstItem="8x7-7Q-OFd" firstAttribute="top" secondItem="epR-cw-DoP" secondAttribute="topMargin" id="NbE-kc-OtT"/>
-                                                                    <constraint firstAttribute="bottomMargin" secondItem="N63-5U-qLH" secondAttribute="bottom" id="dI0-5z-S6O"/>
+                                                                    <constraint firstItem="WHy-hJ-0wz" firstAttribute="leading" secondItem="epR-cw-DoP" secondAttribute="leadingMargin" id="TK0-QB-Bev"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="WHy-hJ-0wz" secondAttribute="trailing" id="Ukg-Vv-9jj"/>
+                                                                    <constraint firstItem="WHy-hJ-0wz" firstAttribute="top" secondItem="N63-5U-qLH" secondAttribute="bottom" constant="16" id="dI0-5z-S6O"/>
                                                                     <constraint firstItem="N63-5U-qLH" firstAttribute="leading" secondItem="epR-cw-DoP" secondAttribute="leadingMargin" id="efE-bW-mgm"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="8x7-7Q-OFd" secondAttribute="trailing" id="ya0-Wb-r5l"/>
                                                                 </constraints>
@@ -248,6 +257,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attributionLabel" destination="WHy-hJ-0wz" id="PBp-18-LVe"/>
                         <outlet property="characterImage" destination="xRl-0l-iKp" id="z38-6g-AZk"/>
                         <outlet property="characterName" destination="lSB-cj-EqM" id="BcW-W6-vrr"/>
                         <outlet property="descriptionDetails" destination="N63-5U-qLH" id="EAd-Jr-Ana"/>

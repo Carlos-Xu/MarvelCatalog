@@ -13,6 +13,7 @@ struct CharacterDetailPageState: Equatable {
     var description: String? = nil
     var isLoading: Bool = false
     var staticErrorMessage: String?
+    var attributionText: String = ""
 }
 
 
@@ -22,11 +23,13 @@ struct CharacterDetailPageUI {
     var name: String
     var description: String?
     var isLoading: Bool
-    
+    var attributionText: String
+
     init(from state: CharacterDetailPageState) {
         self.characterImageUrl = state.characterImageUrl
         self.name = state.name
         self.description = state.description
         self.isLoading = state.isLoading
+        self.attributionText = state.attributionText
     }
 }

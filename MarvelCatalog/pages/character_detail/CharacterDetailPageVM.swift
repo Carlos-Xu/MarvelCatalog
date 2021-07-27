@@ -59,20 +59,21 @@ class CharacterDetailPageVM {
                         guard let character = result.data?.results?.first else {
                             return LoadResult.failed
                         }
-                        return LoadResult.success(character: character)
+                        return LoadResult.success(data: SuccessData(character: character, attributionText: result.attributionText))
                     }
                     .asInfallible(onErrorJustReturn: LoadResult.failed)
             }
             .subscribe(onNext: { [weak self] result in
                 switch result {
-                case .success(let character):
+                case .success(let data):
                     self?.updateState { state in
                         var state = state
-                        state.name = character.name ?? ""
-                        state.description = character.description
-                        state.characterImageUrl = character.thumbnail?.buildFullURL(ofType: .landscape_xlarge)
+                        state.name = data.character.name ?? ""
+                        state.description = data.character.description
+                        state.characterImageUrl = data.character.thumbnail?.buildFullURL(ofType: .landscape_xlarge)
                         state.isLoading = false
                         state.staticErrorMessage = nil
+                        state.attributionText = data.attributionText ?? state.attributionText
                         return state
                     }
                 case .failed:
@@ -112,6 +113,11 @@ private enum ListLoadEvent {
 }
 
 private enum LoadResult {
-    case success(character: Character)
+    case success(data: SuccessData)
     case failed
+}
+
+struct SuccessData {
+    let character: Character
+    let attributionText: String?
 }

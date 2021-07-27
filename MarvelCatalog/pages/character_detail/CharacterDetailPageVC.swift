@@ -22,6 +22,7 @@ class CharacterDetailPageVC: SuperViewController {
     @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var descriptionDetails: UILabel!
     @IBOutlet weak var pageLoadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var attributionLabel: UILabel!
     
     
     // MARK: - Lifecycle
@@ -68,6 +69,7 @@ class CharacterDetailPageVC: SuperViewController {
             }
         }
         
+        attributionLabel.text = ui.attributionText
     }
     
 }
