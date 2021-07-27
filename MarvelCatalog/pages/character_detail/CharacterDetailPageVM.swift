@@ -104,9 +104,6 @@ class CharacterDetailPageVM {
         }
     }
     
-    // MARK: - Events
-    
-    
 }
 
 
