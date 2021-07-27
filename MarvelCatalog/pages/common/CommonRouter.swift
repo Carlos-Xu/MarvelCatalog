@@ -13,7 +13,7 @@ import UIKit
 class CommonRouter {
     
     /**
-     Searches inside Main.storyboard for an UIViewController with the identifier set to T's and instantiates an UIViewController associated with it.
+     Searches inside Main.storyboard for an UIViewController with the identifier set to T's name and instantiates an UIViewController associated with it.
      
      Raises an exception if ViewController is not found or it is not of the correct class.
      */
