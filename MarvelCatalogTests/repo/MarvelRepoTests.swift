@@ -23,14 +23,14 @@ class MarvelRepoTests: XCTestCase {
         let privateKey: String = try! Config.value(for: .marvelPrivateApiKey)
         let publicKey: String = try! Config.value(for: .marvelPublicApiKey)
 
-        repo = MarvelRepo(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey)
+        repo = MarvelRepoImpl(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey)
         
         
         let configuration = URLSessionConfiguration.af.default
         configuration.protocolClasses = [MockingURLProtocol.self] + (configuration.protocolClasses ?? [])
         let mockedSession = Session(configuration: configuration)
         
-        mockedRepo = MarvelRepo(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey, session: mockedSession)
+        mockedRepo = MarvelRepoImpl(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey, session: mockedSession)
     }
 
     override func tearDownWithError() throws {
