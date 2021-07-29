@@ -24,6 +24,7 @@ struct CharacterDetailPageUI: Equatable {
     var description: String?
     var isLoading: Bool
     var attributionText: String
+    var staticErrorMessage: String?
 
     init(from state: CharacterDetailPageState) {
         self.characterImageUrl = state.characterImageUrl
@@ -31,5 +32,6 @@ struct CharacterDetailPageUI: Equatable {
         self.description = state.description
         self.isLoading = state.isLoading
         self.attributionText = state.attributionText
+        self.staticErrorMessage = state.staticErrorMessage
     }
 }

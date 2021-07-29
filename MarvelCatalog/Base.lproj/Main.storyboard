@@ -237,11 +237,33 @@
                                         <viewLayoutGuide key="contentLayoutGuide" id="pkn-CE-7cr"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="NkM-TZ-HU9"/>
                                     </scrollView>
+                                    <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MkA-wD-qpr" userLabel="ErrorMessageContainer">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pce-Bn-M3m">
+                                                <rect key="frame" x="8" y="8" width="398" height="17"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Pce-Bn-M3m" firstAttribute="top" secondItem="MkA-wD-qpr" secondAttribute="topMargin" id="3Ca-wE-kdD"/>
+                                            <constraint firstItem="Pce-Bn-M3m" firstAttribute="leading" secondItem="MkA-wD-qpr" secondAttribute="leadingMargin" id="M6A-SC-8ks"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Pce-Bn-M3m" secondAttribute="trailing" id="R8H-9V-bJX"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Pce-Bn-M3m" secondAttribute="bottom" id="hfo-Fs-RPb"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="MkA-wD-qpr" firstAttribute="top" secondItem="MSR-Ag-fxw" secondAttribute="top" id="3O2-KU-pRm"/>
                                     <constraint firstAttribute="trailing" secondItem="h0I-fC-Cku" secondAttribute="trailing" id="Etv-ZB-mIT"/>
                                     <constraint firstItem="h0I-fC-Cku" firstAttribute="top" secondItem="MSR-Ag-fxw" secondAttribute="top" id="Ns7-th-2xG"/>
+                                    <constraint firstAttribute="trailing" secondItem="MkA-wD-qpr" secondAttribute="trailing" id="i4k-6c-nW9"/>
+                                    <constraint firstItem="MkA-wD-qpr" firstAttribute="leading" secondItem="MSR-Ag-fxw" secondAttribute="leading" id="mh7-iQ-icR"/>
                                     <constraint firstItem="h0I-fC-Cku" firstAttribute="leading" secondItem="MSR-Ag-fxw" secondAttribute="leading" id="pbj-zh-dw3"/>
                                     <constraint firstAttribute="bottom" secondItem="h0I-fC-Cku" secondAttribute="bottom" id="qec-Ri-61q"/>
                                 </constraints>
@@ -262,6 +284,8 @@
                         <outlet property="characterName" destination="lSB-cj-EqM" id="BcW-W6-vrr"/>
                         <outlet property="descriptionDetails" destination="N63-5U-qLH" id="EAd-Jr-Ana"/>
                         <outlet property="descriptionTitle" destination="8x7-7Q-OFd" id="pT5-Fk-vsM"/>
+                        <outlet property="errorMessage" destination="Pce-Bn-M3m" id="lbb-Tx-di5"/>
+                        <outlet property="errorMessageContainer" destination="MkA-wD-qpr" id="gwJ-TC-Aea"/>
                         <outlet property="pageLoadingIndicator" destination="l72-pe-Tgl" id="q1D-mH-mKf"/>
                     </connections>
                 </viewController>
@@ -274,6 +298,9 @@
         <image name="image_placeholder_marvel_portrait_big" width="464" height="261"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

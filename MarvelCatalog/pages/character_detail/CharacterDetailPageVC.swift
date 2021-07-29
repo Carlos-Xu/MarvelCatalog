@@ -23,6 +23,8 @@ class CharacterDetailPageVC: SuperViewController {
     @IBOutlet weak var descriptionDetails: UILabel!
     @IBOutlet weak var pageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var attributionLabel: UILabel!
+    @IBOutlet weak var errorMessageContainer: UIView!
+    @IBOutlet weak var errorMessage: UILabel!
     
     
     // MARK: - Lifecycle
@@ -70,6 +72,9 @@ class CharacterDetailPageVC: SuperViewController {
         }
         
         attributionLabel.text = ui.attributionText
+        
+        errorMessageContainer.isHidden = ui.staticErrorMessage == nil
+        errorMessage.text = ui.staticErrorMessage
     }
     
 }
