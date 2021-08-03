@@ -1,3 +1,7 @@
+### **Importante**
+
+<span style="color:#ff6060">Esta aplicación no compila directamente. La sección "Seguridad" explica las razones y contiene instrucciones para la compilación.</span>
+
 # Marvel Catalog
 
 Esta aplicación simplemente muestra una lista de personajes de Marvel y muestra sus detalles cuando el usuario pulsa sobre alguno de los personajes. Utiliza el API público que Marvel proporciona a los desarrolladores.
