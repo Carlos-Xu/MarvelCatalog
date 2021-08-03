@@ -1,6 +1,6 @@
-### **Importante**
+# **Importante**‼️ 
 
-<span style="color:#ff6060">Esta aplicación no compila directamente. La sección "Seguridad" explica las razones y contiene instrucciones para la compilación.</span>
+Esta aplicación no compila directamente. La sección "Seguridad" explica las razones y contiene instrucciones para la compilación.
 
 # Marvel Catalog
 
