@@ -135,7 +135,6 @@
 		62472F8726A6E93300C9441E /* MarvelCatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelCatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62472F8B26A6E93300C9441E /* MarvelCatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCatalogUITests.swift; sourceTree = "<group>"; };
 		62472F8D26A6E93300C9441E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		62472FA026A6EEFC00C9441E /* MarvelKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MarvelKeys.xcconfig; sourceTree = "<group>"; };
 		62472FA726A6F1A600C9441E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		62472FA926A6F2CB00C9441E /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		62472FAC26A6F81D00C9441E /* MarvelRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepo.swift; sourceTree = "<group>"; };
@@ -335,7 +334,6 @@
 				62472F7726A6E93300C9441E /* Info.plist */,
 				62472F6F26A6E93000C9441E /* MarvelCatalog.xcdatamodeld */,
 				624E5B8326AEE45F0088D15F /* resources */,
-				62472FA026A6EEFC00C9441E /* MarvelKeys.xcconfig */,
 			);
 			path = MarvelCatalog;
 			sourceTree = "<group>";
@@ -797,7 +795,6 @@
 /* Begin XCBuildConfiguration section */
 		62472F8E26A6E93300C9441E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62472FA026A6EEFC00C9441E /* MarvelKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

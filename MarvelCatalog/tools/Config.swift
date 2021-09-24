@@ -22,20 +22,19 @@ enum Config {
     }
     
     
-    static func value<T>(for key: Key) throws -> T where T: LosslessStringConvertible {
+    static func value(for key: Key) throws -> String {
         let keyString = key.rawValue
         
-        guard let object = Bundle.main.object(forInfoDictionaryKey:keyString) else {
-            throw Error.missingKey
-        }
-        
-        switch object {
-        case let value as T:
-            return value
-        case let string as String:
-            guard let value = T(string) else { fallthrough }
-            return value
-        default:
+        let environment = ProcessInfo.processInfo.environment
+        if let environmentValueString = environment[keyString] {
+            return environmentValueString
+        } else if let object = Bundle.main.object(forInfoDictionaryKey:keyString) {
+            if let stringVal = object as? String {
+                return stringVal
+            } else {
+                throw Error.invalidValue
+            }
+        } else {
             throw Error.invalidValue
         }
     }
