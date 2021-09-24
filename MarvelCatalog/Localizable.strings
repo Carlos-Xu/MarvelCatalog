@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  MarvelCatalog
+
+  Created by Carlos Xu on 24/9/21.
+  
+*/
+
+// Common
+"accept" = "Accept";
+"error_title" = "Error";
+"unknown_error_explanation" = "Unknown error. Contact the developer for more information";
+
+
+
+// CharacterDetailPage
+"no_character_details_available" = "(No description available)";
+"description_title" = "Description";

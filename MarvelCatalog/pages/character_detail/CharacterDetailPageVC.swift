@@ -57,10 +57,12 @@ class CharacterDetailPageVC: SuperViewController {
         
         characterName.text = ui.name
         
+        descriptionTitle.text = ui.descriptionTitle
+        
         if let description = ui.description, !description.isEmpty {
             descriptionDetails.text = description
         } else {
-            descriptionDetails.text = "(No description available)"
+            descriptionDetails.text = LocTexts.CharacterDetailPage.no_character_details_available
         }
         
         if pageLoadingIndicator.isAnimating != ui.isLoading {

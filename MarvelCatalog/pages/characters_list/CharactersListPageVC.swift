@@ -45,8 +45,8 @@ class CharactersListPageVC: SuperViewController {
             if let vc = vc {
                 self?.navigationController?.pushViewController(vc, animated: true)
             } else {
-                let alert = UIAlertController(title: "Error", message: "Unknown error. Contact the developer for more information: 3574687", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (_) in
+                let alert = UIAlertController(title: LocTexts.Common.error, message: LocTexts.Common.unknown_error_explanation, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: LocTexts.Common.accept, style: .default, handler: { (_) in
                      }))
                 self?.present(alert, animated: true, completion: nil)
             }
