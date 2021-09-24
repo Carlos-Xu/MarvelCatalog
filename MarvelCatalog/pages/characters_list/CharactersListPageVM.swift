@@ -52,7 +52,11 @@ class CharactersListPageVM {
                     .performRequest()
                     .map { (page: pageToLoad, response: $0) }
                     .retry(when: { errors -> Observable<Error> in
-                        return errors.delay(.seconds(1), scheduler: schedulers.concurrent(qos: .userInitiated))
+                        return errors
+                            .do(onNext: { error in
+                                debugPrint(error.localizedDescription)
+                            })
+                            .delay(.seconds(2), scheduler: schedulers.concurrent(qos: .userInitiated))
                     }) // never fails
                     .asObservable()
             }

@@ -62,7 +62,12 @@ func rxPerformRequestDecodable<T>(of type: T.Type = T.self, decoder: Alamofire.D
         
         request.responseDecodable(of: type, decoder: decoder) { response in
             if let error = response.error {
-                observer(.failure(error))
+                var dataString: String? = nil
+                if let data = response.data {
+                    dataString = String(data: data, encoding: .utf8)
+                }
+                
+                observer(.failure(RepositoryError.general_error(wrappedError: error, responseString: dataString)))
                 return
             }
             
