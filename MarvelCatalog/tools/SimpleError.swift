@@ -8,6 +8,12 @@
 import Foundation
 
 
-struct SimpleError: Error {
+struct SimpleError: LocalizedError {
     var description: String? = nil
+}
+
+extension SimpleError {
+    var errorDescription: String? {
+        description
+    }
 }

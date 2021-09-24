@@ -10,14 +10,22 @@ import Foundation
 
 class CharacterDetailPageRouter {
     
-    static func makeVC(characterId: Int) -> CharacterDetailPageVC {
+    static func makeVC(characterId: Int) throws -> CharacterDetailPageVC {
         let di = AppDelegate.getSharedInstance().di
         let vc: CharacterDetailPageVC = CommonRouter.makeVC()
         
-        let vmFactory = di.resolve(CharacterDetailPageVMFactory.self)!
+        guard let vmFactory = di.resolve(CharacterDetailPageVMFactory.self) else {
+            throw SimpleError(description: "Failed to resolve CharacterDetailPageVMFactory")
+        }
         
-        vc.schedulers = di.resolve(MySchedulers.self)!
-        vc.vm = vmFactory.createVM(with: CharacterDetailPageVM.Config(targetCharacterId: characterId))
+        guard let schedulers = di.resolve(MySchedulers.self) else {
+            throw SimpleError(description: "Failed to resolve MySchedulers")
+        }
+        
+        let vm: CharacterDetailPageVM = vmFactory.createVM(with: CharacterDetailPageVM.Config(targetCharacterId: characterId))
+        
+        vc.schedulers = schedulers
+        vc.vm = vm
         
         return vc
     }

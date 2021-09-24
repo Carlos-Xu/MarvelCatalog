@@ -10,13 +10,23 @@ import Foundation
 
 class CharactersListPageRouter {
     
-    static func makeVC() -> CharactersListPageVC {
+    static func makeVC() throws -> CharactersListPageVC {
         let di = AppDelegate.getSharedInstance().di
         let vc: CharactersListPageVC = CommonRouter.makeVC()
-        let vmFactory = di.resolve(CharactersListPageVMFactory.self)!
         
-        vc.schedulers = di.resolve(MySchedulers.self)!
-        vc.vm = vmFactory.createVM()
+        
+        guard let vmFactory = di.resolve(CharactersListPageVMFactory.self) else {
+            throw SimpleError(description: "Failed to resolve CharactersListPageVMFactory")
+        }
+
+        guard let schedulers = di.resolve(MySchedulers.self) else {
+            throw SimpleError(description: "Failed to resolve MySchedulers")
+        }
+        
+        let vm: CharactersListPageVM = vmFactory.createVM()
+        
+        vc.schedulers = schedulers
+        vc.vm = vm
         
         return vc
     }
