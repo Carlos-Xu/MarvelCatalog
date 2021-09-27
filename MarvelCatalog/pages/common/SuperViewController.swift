@@ -8,10 +8,9 @@
 import UIKit
 import RxSwift
 
-/**
- Implements common behavior for ViewControllers. Features:
- - Provides managed lifecycle aware dispose bags for common lifecycle events
- */
+/// Implements common behavior for ViewControllers.
+///
+/// - Provides managed lifecycle aware dispose bags for common lifecycle events.
 class SuperViewController: UIViewController {
     
     // MARK: - Properties

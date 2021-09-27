@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 
 
+/// Simple implementation of a Delegate and Data source for characters lists UITableViews
 class CharactersTableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Properties

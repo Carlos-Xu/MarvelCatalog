@@ -8,6 +8,7 @@
 import Foundation
 
 
+/// Contains all localized texts as static properties.
 struct LocTexts {
     struct Common {
         static let accept = NSLocalizedString("accept", comment: "option accept")

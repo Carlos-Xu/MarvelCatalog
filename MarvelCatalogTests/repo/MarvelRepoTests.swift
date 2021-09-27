@@ -38,7 +38,7 @@ class MarvelRepoTests: XCTestCase {
     }
 
     func testGetCharactersReal() throws {
-        let call = repo.listCharactersRequest(offset: 0, limit: 20).performRequest().toBlocking()
+        let call = repo.listCharactersRequest(offset: 0, limit: 20).genRXRequest().toBlocking()
 
         do {
             let response = try call.toArray()
@@ -61,14 +61,14 @@ class MarvelRepoTests: XCTestCase {
         let mock = Mock(url: url, ignoreQuery: true, dataType: .json, statusCode: 200, data: [.get: charactersData])
         mock.register()
 
-        let response = try? request.performRequest().toBlocking().single()
+        let response = try? request.genRXRequest().toBlocking().single()
         
         XCTAssertNotNil(response)
     }
 
     func testGetCharacterReal() throws {
         let characterId = 1011334 // 3-D Man
-        let call = repo.getCharacterRequest(characterId).performRequest().toBlocking()
+        let call = repo.getCharacterRequest(characterId).genRXRequest().toBlocking()
 
         do {
             let response = try call.toArray()
@@ -94,7 +94,7 @@ class MarvelRepoTests: XCTestCase {
         let mock = Mock(url: url, ignoreQuery: true, dataType: .json, statusCode: 200, data: [.get: sampleData])
         mock.register()
 
-        let response = try? request.performRequest().toBlocking().single()
+        let response = try? request.genRXRequest().toBlocking().single()
         
         XCTAssertNotNil(response)
 

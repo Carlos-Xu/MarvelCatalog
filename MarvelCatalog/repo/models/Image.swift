@@ -19,9 +19,9 @@ struct Image: Decodable {
 
 extension Image {
    
-    /**
-     Builds and returns the full URL of the specified type.
-     */
+    /// Builds and returns the full URL of the specified type.
+    /// - Parameter variant: Image type
+    /// - Returns: URL of the image.
     func buildFullURL(ofType variant: MarvelImageVariant) -> URL? {
         guard let path = path, let fileExtension = fileExtension else {
             return nil

@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 
+/// The VM for CharacterDetailPageVC
 class CharacterDetailPageVM {
     
     struct Config {
@@ -47,7 +48,7 @@ class CharacterDetailPageVM {
         characterLoadRequests
             .flatMapLatest { characterId in
                 repo.getCharacterRequest(characterId)
-                    .performRequest()
+                    .genRxRequest()
                     .do(onSubscribe: { [weak self] in
                         self?.updateState { old in
                             var old = old
@@ -87,12 +88,18 @@ class CharacterDetailPageVM {
             .disposed(by: disposeBag)
     }
     
+    /// Kicks off the VM's tasks
     func startInitialTasks() {
         characterLoadRequests.onNext(config.targetCharacterId)
     }
     
     // MARK: - State updates
     
+    /// Updates the state with the function provided. Then submits the new state.
+    ///
+    /// This method is locked with an semaphore. Only one call at a time.
+    ///
+    /// - Parameter updateFunc: State updater closure.
     func updateState(_ updateFunc: (CharacterDetailPageState) -> CharacterDetailPageState) {
         stateSemaphore.wait()
         let oldState = self.state

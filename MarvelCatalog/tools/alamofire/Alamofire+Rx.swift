@@ -9,11 +9,11 @@ import Foundation
 import Alamofire
 import RxSwift
 
-/**
- Receives a closure that generates Alamofire requests. Wraps the request inside a Rx Single.
- 
- Generates a new request each time the request is performed or retried.
- */
+/// Receives a closure that generates Alamofire requests and wraps the request inside a RxSingle.
+///
+/// Generates a new request each time the request is performed or retried.
+/// - Parameter requestGenerator: A closure that returns a generated Alamofire DataRequest
+/// - Returns: An RxSingle that emits the response from it's request.
 func rxPerformRequest(requestGenerator: @escaping () throws -> DataRequest) -> Single<String> {
     Single<String>.create { observer in
         let request: DataRequest
@@ -44,11 +44,15 @@ func rxPerformRequest(requestGenerator: @escaping () throws -> DataRequest) -> S
     }
 }
 
-/**
- Receives a closure that generates Alamofire requests. Wraps the request inside a Rx Single.
- 
- Generates a new request each time the request is performed or retried.
- */
+/// Receives a closure that generates Alamofire requests and wraps the request inside a RxSingle.
+///
+/// The request will be performed upon subscription
+///
+/// - Parameters:
+///   - type: response type.
+///   - decoder: Decoder used to decode the response.
+///   - requestGenerator: A closure that returns a generated Alamofire DataRequest
+/// - Returns: An RxSingle wrapping a request.
 func rxPerformRequestDecodable<T>(of type: T.Type = T.self, decoder: Alamofire.DataDecoder = JSONDecoder(), requestGenerator: @escaping () throws -> DataRequest) -> Single<T> where T: Decodable {
     return Single<T>.create { observer in
         let request: DataRequest

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Container for dependency injection.
      */
     let di: Container = {
-        let newContainer = initializeDIContainer()
+        let newContainer = createInitializedDIContainer()
         return newContainer
     }()
 

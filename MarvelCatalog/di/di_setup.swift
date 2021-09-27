@@ -10,7 +10,9 @@ import Swinject
 
 
 
-func initializeDIContainer() -> Container {
+/// Creates a Swinject container with all necessary dependencies registered.
+/// - Returns: Initialized container
+func createInitializedDIContainer() -> Container {
     let container = Container()
     
     

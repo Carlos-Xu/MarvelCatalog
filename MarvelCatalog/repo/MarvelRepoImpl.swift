@@ -9,9 +9,8 @@ import Foundation
 import Alamofire
 import RxSwift
 
-/**
- Simple implementation of MarvelRepo
- */
+
+/// Simple implementation of MarvelRepo
 class MarvelRepoImpl: MarvelRepo {
     
     private let baseUrl: String
@@ -31,7 +30,7 @@ class MarvelRepoImpl: MarvelRepo {
     func listCharactersRequest(offset: Int, limit: Int) -> RxDecodableRequest<CharacterDataWrapper> {
         let url = "\(baseUrl)/characters"
         
-        return RxDecodableRequest(decoder: getDecoder()) { [weak self] in
+        return RxDecodableRequest(decoder: genDecoder()) { [weak self] in
             guard let selfRef = self else {
                 throw SimpleError()
             }
@@ -45,7 +44,7 @@ class MarvelRepoImpl: MarvelRepo {
     func getCharacterRequest(_ characterId: Int) -> RxDecodableRequest<CharacterDataWrapper> {
         let url = "\(baseUrl)/characters/\(characterId)"
         
-        return RxDecodableRequest(decoder: getDecoder()) { [weak self] in
+        return RxDecodableRequest(decoder: genDecoder()) { [weak self] in
             guard let selfRef = self else {
                 throw SimpleError()
             }
@@ -56,6 +55,8 @@ class MarvelRepoImpl: MarvelRepo {
     
     // MARK: - Helpers
     
+    /// Generates a Parameters object with auth parameters set up for a new request.
+    /// - Returns: Initialized Parameters object.
     private func generateAuthParameters() -> Parameters {
         let uniqueString = genUniqueString()
         
@@ -69,7 +70,7 @@ class MarvelRepoImpl: MarvelRepo {
         ]
     }
     
-    private func getDecoder() -> Alamofire.DataDecoder {
+    private func genDecoder() -> Alamofire.DataDecoder {
         let decoder = JSONDecoder()
         
         decoder.dateDecodingStrategy = .iso8601 // Marvel doesn't state the time format. But It looks like iso8601.

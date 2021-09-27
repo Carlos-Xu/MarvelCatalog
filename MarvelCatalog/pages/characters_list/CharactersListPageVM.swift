@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 
+/// CharactersListPageVC's VM
 class CharactersListPageVM {
     
     // MARK: - Properties
@@ -49,7 +50,7 @@ class CharactersListPageVM {
                 }
 
                 return repo.listCharactersRequest(offset: offset, limit: CharactersListPageConfig.listPageSize)
-                    .performRequest()
+                    .genRxRequest()
                     .map { (page: pageToLoad, response: $0) }
                     .retry(when: { errors -> Observable<Error> in
                         return errors
@@ -80,12 +81,18 @@ class CharactersListPageVM {
             .disposed(by: disposeBag)
     }
     
+    /// Kicks off the VM's tasks
     func startInitialTasks() {
         _listPageLoadRequests.onNext(0)
     }
     
     // MARK: - State updates
     
+    /// Updates the state with the function provided. Then submits the new state.
+    ///
+    /// This method is locked with an semaphore. Only one call at a time.
+    /// 
+    /// - Parameter updateFunc: State updater closure.
     func updateState(_ updateFunc: (CharactersListPageState) -> CharactersListPageState) {
         stateSemaphore.wait()
         let oldState = self.state
@@ -100,6 +107,12 @@ class CharactersListPageVM {
     
     // MARK: - Events
     
+    
+    /// To be called when user scrolls near the end of available items in characters list.
+    ///
+    /// Loads the next portion of the characters list.
+    ///
+    /// - Parameter reachedRow: The row the user has reached when this method is triggered.
     func onCharactersListEndNearlyReached(reachedRow: Int) {
         let currentState = self.state
         
@@ -115,7 +128,7 @@ class CharactersListPageVM {
     
     // MARK: - Convenience
     
-    func offset(forPage page: Int) -> Int {
+    private func offset(forPage page: Int) -> Int {
         let offset = page * CharactersListPageConfig.listPageSize
         return offset
     }

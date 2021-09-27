@@ -12,11 +12,11 @@ import UIKit
  */
 class CommonRouter {
     
-    /**
-     Searches inside Main.storyboard for an UIViewController with the identifier set to T's name and instantiates an UIViewController associated with it.
-     
-     Raises an exception if ViewController is not found or it is not of the correct class.
-     */
+    /// Searches inside Main.storyboard for an UIViewController with the identifier set to T's name and instantiates an UIViewController associated with it.
+    ///
+    /// Raises an fatalError if ViewController is not found or it is not of the correct class.
+    ///
+    /// - Returns: Instantiated UIViewController.
     static func makeVC<T: UIViewController>() -> T {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
      

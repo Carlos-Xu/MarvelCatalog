@@ -7,9 +7,7 @@
 
 import Foundation
 
-/**
- Convenience class to access Configurations.
- */
+/// Convenience class to access Configurations.
 enum Config {
     enum Error: Swift.Error {
         case missingKey, invalidValue

@@ -10,6 +10,9 @@ import Foundation
 
 class CharactersListPageRouter {
     
+    /// Instantiates a CharactersListPageVC with all it's required dependencies.
+    /// - Throws: An error if fails to instantiate VC.
+    /// - Returns: Instantiated CharactersListPageVC
     static func makeVC() throws -> CharactersListPageVC {
         let di = AppDelegate.getSharedInstance().di
         let vc: CharactersListPageVC = CommonRouter.makeVC()

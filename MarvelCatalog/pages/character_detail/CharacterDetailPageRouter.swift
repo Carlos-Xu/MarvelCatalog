@@ -10,6 +10,9 @@ import Foundation
 
 class CharacterDetailPageRouter {
     
+    /// Instantiates a CharacterDetailPageVC with all it's required dependencies.
+    /// - Throws: An error if fails to instantiate VC.
+    /// - Returns: Instantiated CharacterDetailPageVC
     static func makeVC(characterId: Int) throws -> CharacterDetailPageVC {
         let di = AppDelegate.getSharedInstance().di
         let vc: CharacterDetailPageVC = CommonRouter.makeVC()

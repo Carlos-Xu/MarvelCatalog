@@ -52,6 +52,8 @@ class CharacterDetailPageVC: SuperViewController {
     
     // MARK: - UI Workers
     
+    /// Updates UI according to provided ui description
+    /// - Parameter ui: An object describing the UI's current desired state.
     func updateUI(_ ui: CharacterDetailPageUI) {
         characterImage.kf.setImage(with: ui.characterImageUrl, placeholder: UIImage(named: "image_placeholder_marvel_portrait_big"), options: [.retryStrategy(DelayRetryStrategy(maxRetryCount: 3))])
         

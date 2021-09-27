@@ -68,6 +68,8 @@ class CharactersListPageVC: SuperViewController {
     
     // MARK: - UI Workers
     
+    /// Updates UI according to provided ui description
+    /// - Parameter ui: An object describing the UI's current desired state.
     func updateUI(_ ui: CharactersListPageUI) {
         let listUpdated = charactersTableAdapter.updateListIfChanged(ui.characters)
         if listUpdated {
