@@ -27,10 +27,10 @@ func createInitializedDIContainer() -> Container {
             fatalError("Base url for Marvel API not configured")
         }
         guard let privateKey: String = try? Config.value(for: .marvelPrivateApiKey) else {
-            fatalError("Private key for Marvel API not configured")
+            fatalError("Private key for Marvel API not configured. Check README for more information.")
         }
         guard let publicKey: String = try? Config.value(for: .marvelPublicApiKey) else {
-            fatalError("Public key for Marvel API not configured")
+            fatalError("Public key for Marvel API not configured. Check README for more information.")
         }
         
         return MarvelRepoImpl(baseUrl: baseUrl, privateKey: privateKey, publicKey: publicKey)
