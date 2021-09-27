@@ -25,6 +25,8 @@ Estas variables se guardan en el fichero ./MarvelCatalog.xcodeproj/xcshareddata/
 > MARVEL_PRIVATE_API_KEY<br>
 > MARVEL_PUBLIC_API_KEY
 
+La siguiente página contiene instrucciones de cómo se añaden las variables de entorno:
+https://nshipster.com/launch-arguments-and-environment-variables/
 
 ## Arquitectura
 
