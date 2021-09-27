@@ -18,14 +18,13 @@ Antes de compilar el proyecto es necesario hablar de seguridad. El API de marvel
 
 La mejor manera de garantizar la seguridad de las claves es guardarlas en un servidor y acceder a través de ellas por medio de consultas al servidor.
 
-Para simplificar el proyecto he elegido una opción menos segura: guardarlas en el fichero ./MarvelCatalog/MarvelKeys.xcconfig.
+Para simplificar el proyecto he elegido una opción menos segura: añadirlas como variables de entorno.
 
-Este fichero está excluido en el .gitignore, por lo que antes de compilar el proyecto habrá que crear el fichero e incluir las claves. El fichero tiene que tener el siguiente formato:
+Estas variables se guardan en el fichero ./MarvelCatalog.xcodeproj/xcshareddata/xcschemes/MarvelCatalog.xcscheme, que no lo subimos a git para no dibulgar las claves. Antes de lanzar app hay que añadirlas. Estas son las claves que la app utiliza para acceder a ellas:
 
-> MARVEL_PRIVATE_API_KEY = insertar_clave_sin_comillas<br>
-> MARVEL_PUBLIC_API_KEY = insertar_clave_sin_comillas
+> MARVEL_PRIVATE_API_KEY<br>
+> MARVEL_PUBLIC_API_KEY
 
-Este método asegura que las claves no se publiquen por Git, pero no es seguro porque las claves seguirá estando incluidas en las aplicaciones compiladas.
 
 ## Arquitectura
 
